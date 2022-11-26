@@ -1,18 +1,32 @@
-import Fastify from 'fastify'
+import Fastify from "fastify"
+import { PrismaClient } from "@prisma/client"
+
+const prisma = new PrismaClient({
+  log: ["query"],
+})
+
 const fastify = Fastify({
-  logger: true
+  logger: true,
 })
 
-fastify.get('/', async (request, reply) => {
-  return { hello: 'world' }
-})
+async function start() {
+  fastify.post("/user", async (request, reply) => {
+    const { name } = request.body
 
-const start = async () => {
-  try {
-    await fastify.listen({ port: 3000 })
-  } catch (err) {
-    fastify.log.error(err)
-    process.exit(1)
-  }
+    await prisma.user.create({
+      data: {
+        name,
+      },
+    })
+
+    return reply.status(201).send({ name })
+  })
+
+  fastify.listen({ port: 3000 }, function (err) {
+    if (err) {
+      fastify.log.error(err)
+      process.exit(1)
+    }
+  })
 }
 start()
