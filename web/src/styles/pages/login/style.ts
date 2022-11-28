@@ -28,7 +28,7 @@ export const ContainerInputUser = styled.div`
   background-color: white;
   border-radius: 50px;
   position: absolute;
-  top: 20%;
+  top: 23%;
   left: 50%;
   transform: translateX(-50%);
   display: flex;
@@ -50,7 +50,7 @@ export const Buttom = styled.button`
   background-color: blue;
   border-radius: 50px;
   position: absolute;
-  top: 60%;
+  bottom: 23%;
   left: 50%;
   transform: translateX(-50%);
   font-family: "Roboto", sans-serif;
