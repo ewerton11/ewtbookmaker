@@ -1,13 +1,15 @@
 import NavBar from "../../components/navbar"
-import { Main } from "../../styles/pages/home/style"
+import { Div } from "../../styles/pages/bets/style"
 
 export default function Bets() {
   return (
     <>
       <NavBar />
-      <Main>
-        <h1>APOSTAS</h1>
-      </Main>
+      <Div>
+        <main>
+          <h1>APOSTAS</h1>
+        </main>
+      </Div>
     </>
   )
 }

@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { useState } from "react"
 import { FormEvent } from "react"
+import { Router, useRouter } from "next/router"
+
 import { api } from "../lib/axios/axios"
 
 import {
@@ -13,6 +15,7 @@ import {
 
 export default function Login() {
   const [userName, setUserName] = useState("")
+  const router = useRouter()
 
   async function createUser(event: FormEvent) {
     event.preventDefault()
@@ -21,6 +24,7 @@ export default function Login() {
       await api.post("/user", {
         name: userName,
       })
+      router.push("/home")
     } catch {
       alert("Esse usuario ja existe")
     }
