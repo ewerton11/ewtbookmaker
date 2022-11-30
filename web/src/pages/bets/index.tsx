@@ -1,7 +1,7 @@
 import NavBar from "../../components/navbar"
 import { Div } from "../../styles/pages/bets/style"
 
-export default function Bets() {
+export default function MyBets() {
   return (
     <>
       <NavBar />

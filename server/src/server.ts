@@ -27,7 +27,7 @@ async function start() {
     return reply.status(201).send({ name })
   })
 
-  fastify.listen({ port: 3001 }, function (err) {
+  fastify.listen({ port: 3000 }, function (err) {
     if (err) {
       fastify.log.error(err)
       process.exit(1)

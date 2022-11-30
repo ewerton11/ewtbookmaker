@@ -11,13 +11,12 @@ export const Div = styled.div`
 `
 
 export const Main = styled.main`
-  width: 70%;
+  width: 90%;
   height: 80%;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 50px;
+  /* background-color: #e5d9d9; */
   position: absolute;
+  bottom: 0;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: row wrap;
+  overflow-y: scroll;
 `
