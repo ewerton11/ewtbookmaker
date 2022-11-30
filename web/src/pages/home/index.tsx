@@ -11,18 +11,6 @@ export default function Home() {
         <CreateBets />
         <Main>
           <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
-          <PreviewBets />
         </Main>
       </Div>
     </>
