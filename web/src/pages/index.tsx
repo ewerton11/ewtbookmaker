@@ -1,7 +1,6 @@
-import Link from "next/link"
 import { useState } from "react"
 import { FormEvent } from "react"
-import { Router, useRouter } from "next/router"
+import { useRouter } from "next/router"
 
 import { api } from "../lib/axios/axios"
 
