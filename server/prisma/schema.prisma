@@ -16,3 +16,10 @@ model User {
 
   @@map("users")
 }
+
+model Bets {
+  id   String @id @default(uuid())
+  name String
+
+  @@map("bets")
+}

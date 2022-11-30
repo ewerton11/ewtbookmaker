@@ -1,5 +1,9 @@
 import Link from "next/link"
-import { ContainerProfile, ContainerUl, Div, Li, Nav } from "./style"
+import Image from "next/image"
+
+import Profile from "../../assets/image/profile.png"
+
+import { ContainerProfile, ContainerUl, DivProfile, Li, Nav } from "./style"
 
 export default function NavBar() {
   return (
@@ -16,9 +20,10 @@ export default function NavBar() {
         </Li>
       </ContainerUl>
       <ContainerProfile>
-        <Div>
+        <DivProfile>
           <Link href="/profile">Perfil</Link>
-        </Div>
+          <Image src={Profile} width={25} alt="Imagem de perfil" />
+        </DivProfile>
       </ContainerProfile>
     </Nav>
   )

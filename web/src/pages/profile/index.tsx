@@ -1,13 +1,15 @@
 import NavBar from "../../components/navbar"
-import { Main } from "../../styles/pages/home/style"
+import { Div } from "../../styles/pages/profile/style"
 
 export default function Profile() {
   return (
     <>
       <NavBar />
-      <Main>
-        <h1>PERFIL</h1>
-      </Main>
+      <Div>
+        <main>
+          <h1>PERFIL</h1>
+        </main>
+      </Div>
     </>
   )
 }

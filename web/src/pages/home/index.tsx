@@ -1,13 +1,30 @@
 import NavBar from "../../components/navbar"
-import { Main } from "../../styles/pages/home/style"
+import { Div, Main } from "../../styles/pages/home/style"
+import CreateBets from "./createBetsHome"
+import PreviewBets from "./previewBets"
 
 export default function Home() {
   return (
     <>
       <NavBar />
-      <Main>
-        <h1>HOME</h1>
-      </Main>
+      <Div>
+        <CreateBets />
+        <Main>
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+          <PreviewBets />
+        </Main>
+      </Div>
     </>
   )
 }
