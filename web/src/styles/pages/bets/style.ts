@@ -13,6 +13,7 @@ export const MainBets = styled.main`
   width: 100%;
   height: 100%;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
 `
 
@@ -20,7 +21,7 @@ export const ContainerBets = styled.div`
   width: 40%;
   height: 95%;
   border: 1px solid black;
-  margin: 3% 5%;
+  margin: 3% 4%;
   display: flex;
   flex-direction: column;
 `

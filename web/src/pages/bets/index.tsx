@@ -32,7 +32,6 @@ export default function MyBets() {
     api.get("/bets").then((response) => {
       const betsData = response.data
 
-      console.log(betsData)
       setBets(betsData)
     })
   }, [])
@@ -49,7 +48,7 @@ export default function MyBets() {
               <ContainerBets key={items.id}>
                 <ContainerTop>
                   <TitleBets>
-                    <h2>{items.title}</h2>
+                    <h1>{items.title}</h1>
                   </TitleBets>
                   <ValueBets>
                     <h2>R$ {items.value}</h2>
@@ -64,7 +63,7 @@ export default function MyBets() {
                   </MainBet>
                 </BetMaker>
                 <SubBets>
-                  <Against>
+                  {/* <Against>
                     <AgainstBet>
                       <p>Apostando contra</p>
                     </AgainstBet>
@@ -79,7 +78,7 @@ export default function MyBets() {
                     <ToAgreeBet>
                       <p>Apostando a favor</p>
                     </ToAgreeBet>
-                  </ToAgree>
+                  </ToAgree> */}
                 </SubBets>
                 <DivBottom>
                   <PeopleBets>

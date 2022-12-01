@@ -1,12 +1,10 @@
 import styled from "styled-components"
 
 export const ContainerPreviewBets = styled.div`
-  min-width: 200px;
-  min-height: 250px;
-  background-color: white;
+  width: 200px;
+  height: 250px;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 1.7%;
-  flex-flow: wrap;
+  margin: 1.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
