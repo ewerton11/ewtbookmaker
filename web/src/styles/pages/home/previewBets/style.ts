@@ -15,7 +15,7 @@ export const ContainerPreviewBets = styled.div`
 
 export const TitlePreviewBets = styled.div`
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,9 +23,20 @@ export const TitlePreviewBets = styled.div`
   font-size: 0.5rem;
 `
 
+export const ValuePreview = styled.div`
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  color: red;
+`
+
 export const DescriptionPreview = styled.div`
   width: 100%;
-  height: 60%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,13 +46,14 @@ export const DescriptionPreview = styled.div`
 
   & p {
     width: 150px;
-    word-wrap: normal;
+    height: 100%;
+    word-wrap: break-word;
   }
 `
 
 export const PeopleBetting = styled.div`
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   align-items: center;
 `
