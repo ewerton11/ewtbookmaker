@@ -29,8 +29,6 @@ export default function PreviewBets() {
 
   function SelectBets(event: FormEvent) {
     Router.push("/bets")
-
-    console.log(event.target)
   }
 
   return (

@@ -13,10 +13,10 @@ export const Div = styled.div`
 export const Main = styled.main`
   width: 90%;
   height: 80%;
-  /* background-color: #e5d9d9; */
   position: absolute;
   bottom: 0;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
   overflow-y: scroll;
 `
