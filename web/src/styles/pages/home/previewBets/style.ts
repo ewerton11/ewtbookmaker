@@ -1,21 +1,28 @@
 import styled from "styled-components"
 
 export const ContainerPreviewBets = styled.div`
-  min-width: 200px;
-  min-height: 250px;
-  background-color: white;
+  width: 40%;
+  height: 30%;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  margin: 1.7%;
-  flex-flow: wrap;
+  margin: 1.5%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   cursor: pointer;
 `
 
-export const TitlePreviewBets = styled.div`
+export const ContainerTop = styled.div`
   width: 100%;
-  height: 20%;
+  height: 15%;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
+
+export const TitlePreviewBets = styled.div`
+  width: 80%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,9 +30,28 @@ export const TitlePreviewBets = styled.div`
   font-size: 0.5rem;
 `
 
-export const DescriptionPreview = styled.div`
+export const ValuePreview = styled.div`
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 0.7rem;
+  color: red;
+`
+
+export const ContainerDescription = styled.div`
   width: 100%;
-  height: 60%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const DescriptionPreview = styled.div`
+  width: 50%;
+  height: 55%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,13 +61,14 @@ export const DescriptionPreview = styled.div`
 
   & p {
     width: 150px;
-    word-wrap: normal;
+    height: 100%;
+    word-wrap: break-word;
   }
 `
 
 export const PeopleBetting = styled.div`
   width: 100%;
-  height: 20%;
+  height: 15%;
   display: flex;
   align-items: center;
 `
