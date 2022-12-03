@@ -57,7 +57,6 @@ export const Buttom = styled.button`
   height: 20%;
   border-radius: 50px;
   background-color: blue;
-  border-radius: 50px;
   /* position: absolute;
   bottom: 23%;
   left: 50%;

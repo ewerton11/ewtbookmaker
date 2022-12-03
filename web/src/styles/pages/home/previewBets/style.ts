@@ -23,8 +23,8 @@ export const ContainerTop = styled.div`
 export const TitlePreviewBets = styled.div`
   width: 80%;
   height: 100%;
+  margin-left: 5%;
   display: flex;
-  justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
   font-size: 0.5rem;
@@ -37,7 +37,7 @@ export const ValuePreview = styled.div`
   justify-content: center;
   align-items: center;
   font-family: "Roboto", sans-serif;
-  font-size: 0.7rem;
+  font-size: 0.5rem;
   color: red;
 `
 
