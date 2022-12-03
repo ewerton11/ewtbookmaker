@@ -1,8 +1,8 @@
 import styled from "styled-components"
 
 export const ContainerPreviewBets = styled.div`
-  width: 200px;
-  height: 250px;
+  width: 40%;
+  height: 30%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   margin: 1.5%;
   display: flex;
@@ -11,9 +11,18 @@ export const ContainerPreviewBets = styled.div`
   cursor: pointer;
 `
 
-export const TitlePreviewBets = styled.div`
+export const ContainerTop = styled.div`
   width: 100%;
   height: 15%;
+  margin-top: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+`
+
+export const TitlePreviewBets = styled.div`
+  width: 80%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,8 +31,8 @@ export const TitlePreviewBets = styled.div`
 `
 
 export const ValuePreview = styled.div`
-  width: 100%;
-  height: 5%;
+  width: 20%;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -32,8 +41,16 @@ export const ValuePreview = styled.div`
   color: red;
 `
 
-export const DescriptionPreview = styled.div`
+export const ContainerDescription = styled.div`
   width: 100%;
+  height: 55%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const DescriptionPreview = styled.div`
+  width: 50%;
   height: 55%;
   display: flex;
   justify-content: center;

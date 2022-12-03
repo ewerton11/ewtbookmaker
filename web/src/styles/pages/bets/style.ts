@@ -1,14 +1,16 @@
 import styled from "styled-components"
 
 export const DivContainer = styled.div`
-  width: 100%;
-  height: 93%;
+  width: 70%;
+  height: 86%;
   position: absolute;
   bottom: 0;
+  right: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 `
+
 export const MainBets = styled.main`
   width: 100%;
   height: 100%;
@@ -18,8 +20,8 @@ export const MainBets = styled.main`
 `
 
 export const ContainerBets = styled.div`
-  width: 40%;
-  height: 95%;
+  width: 90%;
+  height: 70%;
   border: 1px solid black;
   margin: 3% 4%;
   display: flex;
@@ -38,6 +40,7 @@ export const ContainerTop = styled.div`
 export const TitleBets = styled.div`
   width: 80%;
   height: 100%;
+  margin-left: 5%;
   display: flex;
   align-items: center;
 
@@ -57,18 +60,17 @@ export const ValueBets = styled.div`
 export const BetMaker = styled.div`
   width: 100%;
   height: 20%;
+  /* border-bottom: 1px solid black; */
   display: flex;
-  justify-content: space-around;
+  justify-content: baseline;
   align-items: center;
 `
 
 export const MainBet = styled.div`
   width: 80%;
   height: 80%;
-  border: 1px solid black;
-  border-radius: 100px;
+  margin-left: 2%;
   display: flex;
-  justify-content: center;
   align-items: center;
 
   & p {
@@ -76,7 +78,7 @@ export const MainBet = styled.div`
     height: 80%;
     word-wrap: break-word;
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     overflow-y: auto;
   }
 `
@@ -97,23 +99,21 @@ export const Against = styled.div`
 `
 
 export const AgainstBet = styled.div`
-  width: 60%;
+  width: 100%;
   height: 70%;
-  border: 1px solid black;
-  margin-right: 5%;
-  border-radius: 100px;
+  margin-right: 2%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 
   & p {
-    width: 80%;
+    width: 100%;
     height: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: red;
   }
 `
@@ -122,27 +122,26 @@ export const ToAgree = styled.div`
   width: 100%;
   height: 25%;
   display: flex;
+  justify-content: end;
   align-items: center;
 `
 
 export const ToAgreeBet = styled.div`
-  width: 60%;
+  width: 100%;
   height: 70%;
-  border: 1px solid black;
-  margin-left: 5%;
-  border-radius: 100px;
+  margin-right: 2%;
   display: flex;
-  justify-content: center;
+  justify-content: end;
   align-items: center;
 
   & p {
-    width: 80%;
+    width: 100%;
     height: 80%;
     display: flex;
-    justify-content: center;
+    justify-content: end;
     align-items: center;
     font-family: "Roboto", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     color: blue;
   }
 `

@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
+import { HeaderBets } from "./headerBets"
+import HeaderLogin from "../../components/navbar/navLogin"
 import NavBar from "../../components/navbar"
 import Profile from "../../assets/image/profile.png"
 import { api } from "../../lib/axios/axios"
@@ -41,6 +43,7 @@ export default function MyBets() {
   return (
     <>
       <NavBar />
+      <HeaderBets />
       <DivContainer>
         <MainBets>
           {bets.map((items: ItemsBets) => {
@@ -48,7 +51,7 @@ export default function MyBets() {
               <ContainerBets key={items.id}>
                 <ContainerTop>
                   <TitleBets>
-                    <h1>{items.title}</h1>
+                    <h2>{items.title}</h2>
                   </TitleBets>
                   <ValueBets>
                     <h2>R$ {items.value}</h2>
@@ -63,7 +66,7 @@ export default function MyBets() {
                   </MainBet>
                 </BetMaker>
                 <SubBets>
-                  {/* <Against>
+                  <Against>
                     <AgainstBet>
                       <p>Apostando contra</p>
                     </AgainstBet>
@@ -72,13 +75,13 @@ export default function MyBets() {
                     </div>
                   </Against>
                   <ToAgree>
-                    <div>
-                      <Image src={Profile} alt="previa de perfil" width={30} />
-                    </div>
                     <ToAgreeBet>
                       <p>Apostando a favor</p>
                     </ToAgreeBet>
-                  </ToAgree> */}
+                    <div>
+                      <Image src={Profile} alt="previa de perfil" width={30} />
+                    </div>
+                  </ToAgree>
                 </SubBets>
                 <DivBottom>
                   <PeopleBets>
@@ -107,8 +110,8 @@ export default function MyBets() {
                     </ContainerImage>
                   </PeopleBets>
                   <ContainerSelectBets>
-                    <SelectAgainst>favor</SelectAgainst>
-                    <SelectToAgree>contra</SelectToAgree>
+                    <SelectAgainst>A favor</SelectAgainst>
+                    <SelectToAgree>Contra</SelectToAgree>
                   </ContainerSelectBets>
                 </DivBottom>
               </ContainerBets>
