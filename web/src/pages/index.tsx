@@ -1,46 +1,19 @@
-import { useState } from "react"
-import { FormEvent } from "react"
-import { useRouter } from "next/router"
+import NavBar from "../components/navbar"
+import CreateBets from "./home/createBetsHome"
+import PreviewBets from "./home/previewBets"
 
-import { api } from "../lib/axios/axios"
+import { Div, Main } from "../styles/pages/home/style"
 
-import {
-  Buttom,
-  Container,
-  ContainerInputUser,
-  Input,
-  Page,
-} from "../styles/pages/login/style"
-
-export default function Login() {
-  const [userName, setUserName] = useState("")
-  const router = useRouter()
-
-  async function createUser(event: FormEvent) {
-    event.preventDefault()
-
-    try {
-      await api.post("/user", {
-        name: userName,
-      })
-      router.push("/home")
-    } catch {
-      alert("Esse usuario ja existe")
-    }
-  }
-
+export default function Home() {
   return (
-    <Page>
-      <Container onSubmit={createUser}>
-        <ContainerInputUser>
-          <Input
-            type="text"
-            placeholder="Nome"
-            onChange={(event) => setUserName(event.target.value)}
-          />
-        </ContainerInputUser>
-        <Buttom type="submit">confirmar</Buttom>
-      </Container>
-    </Page>
+    <>
+      <NavBar />
+      <Div>
+        <CreateBets />
+        <Main>
+          <PreviewBets />
+        </Main>
+      </Div>
+    </>
   )
 }

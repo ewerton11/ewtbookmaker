@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 export const Div = styled.div`
   width: 100%;
-  height: 93%;
+  height: 86%;
   position: absolute;
   bottom: 0;
   display: flex;
@@ -13,10 +13,10 @@ export const Div = styled.div`
 export const Main = styled.main`
   width: 90%;
   height: 80%;
-  /* background-color: #e5d9d9; */
   position: absolute;
   bottom: 0;
   display: flex;
+  justify-content: center;
   flex-flow: row wrap;
   overflow-y: scroll;
 `

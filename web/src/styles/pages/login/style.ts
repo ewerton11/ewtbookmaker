@@ -20,6 +20,15 @@ export const Container = styled.form`
   border: 1px solid white;
   border-radius: 50px;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+`
+
+export const Link = styled.link`
+  color: blue;
+  font-size: 20px;
 `
 
 export const ContainerInputUser = styled.div`
@@ -27,10 +36,10 @@ export const ContainerInputUser = styled.div`
   height: 20%;
   background-color: white;
   border-radius: 50px;
-  position: absolute;
+  /* position: absolute;
   top: 23%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -49,10 +58,10 @@ export const Buttom = styled.button`
   border-radius: 50px;
   background-color: blue;
   border-radius: 50px;
-  position: absolute;
+  /* position: absolute;
   bottom: 23%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   color: white;

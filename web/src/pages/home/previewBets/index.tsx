@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Router from "next/router"
 import { useEffect, useState } from "react"
+import { FormEvent } from "react"
 
 import { api } from "../../../lib/axios/axios"
 
@@ -12,6 +13,9 @@ import {
   PeopleBetting,
   ContainerImage,
   DescriptionPreview,
+  ValuePreview,
+  ContainerTop,
+  ContainerDescription,
 } from "../../../styles/pages/home/previewBets/style"
 
 export default function PreviewBets() {
@@ -25,20 +29,31 @@ export default function PreviewBets() {
 
   const [bets, setBets] = useState([])
 
+  function SelectBets(event: FormEvent) {
+    Router.push("/bets")
+  }
+
   return (
     <>
-      {bets.map((preview: PreviewBets) => {
+      {bets.map((preview: ItemsBets) => {
         return (
-          <ContainerPreviewBets
-            onClick={() => Router.push("/bets")}
-            key={preview.id}
-          >
-            <TitlePreviewBets>
-              <h1>{preview.title}</h1>
-            </TitlePreviewBets>
-            <DescriptionPreview>
-              <p>{preview.description}</p>
-            </DescriptionPreview>
+          <ContainerPreviewBets onClick={SelectBets} key={preview.id}>
+            <ContainerTop>
+              <TitlePreviewBets>
+                <h1>{preview.title}</h1>
+              </TitlePreviewBets>
+              <ValuePreview>
+                <h2>R$ {preview.value}</h2>
+              </ValuePreview>
+            </ContainerTop>
+            <ContainerDescription>
+              <div>
+                <Image src={Profile} alt="previa de perfil" width={30} />
+              </div>
+              <DescriptionPreview>
+                <p>{preview.description}</p>
+              </DescriptionPreview>
+            </ContainerDescription>
             <PeopleBetting>
               <ContainerImage>
                 <div>
