@@ -2,11 +2,11 @@ import styled from "styled-components"
 
 export const DivCreateBets = styled.div`
   width: 100%;
-  height: 93%;
-  /* background-color: #e5d9d9; */
+  height: 86%;
   position: absolute;
-  top: 7%;
+  bottom: 0;
   display: flex;
+  justify-content: center;
 `
 
 export const FormCreateBets = styled.form`
@@ -28,7 +28,6 @@ export const InputCreateTitle = styled.input`
   height: 80%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
   margin-right: 1%;
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
@@ -39,7 +38,6 @@ export const InputCreateValue = styled.input`
   height: 80%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
 `
@@ -49,7 +47,6 @@ export const InputCreateDescription = styled.input`
   height: 15%;
   background-color: white;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 20px;
   margin: 5% 0px 0px 3%;
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;

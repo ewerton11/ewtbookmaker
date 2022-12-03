@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react"
+import Router from "next/router"
 
 import { api } from "../../lib/axios/axios"
 import NavBar from "../../components/navbar"
@@ -27,6 +28,9 @@ export default function CreateBets() {
         value: betsValue,
         description: betsDescription,
       })
+
+      await alert("Aposta criada")
+      await Router.push("/")
     } catch {
       alert("Error, tente novamente")
     }
@@ -40,17 +44,21 @@ export default function CreateBets() {
           <DivTop>
             <InputCreateTitle
               type="text"
+              maxLength={20}
+              minLength={2}
               placeholder="Titulo"
               onChange={(event) => setBetsTitle(event.target.value)}
             />
             <InputCreateValue
               type="text"
+              maxLength={4}
               placeholder="Valor $"
               onChange={(event) => setBetsValue(event.target.value)}
             />
           </DivTop>
           <InputCreateDescription
             type="text"
+            minLength={5}
             placeholder="Descriçao"
             onChange={(event) => setBetsDescription(event.target.value)}
           />
