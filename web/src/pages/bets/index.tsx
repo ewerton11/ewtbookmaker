@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-import { HeaderBets } from "./headerBets"
-import HeaderLogin from "../../components/navbar/navLogin"
+import HeaderBets from "./headerBets"
 import NavBar from "../../components/navbar"
 import Profile from "../../assets/image/profile.png"
 import { api } from "../../lib/axios/axios"
