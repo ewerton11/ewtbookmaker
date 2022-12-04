@@ -23,6 +23,8 @@ loading...
 - Prisma
 - Fastify
 
+# How to run project
+
 ```bash
 
 # Clone repository
