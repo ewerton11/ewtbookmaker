@@ -41,7 +41,6 @@ export function HeaderBets() {
 
     setSearch(value)
   }
-  // ValueInput()
 
   const [value, setSearch] = useState(bets)
 
