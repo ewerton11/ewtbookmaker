@@ -29,7 +29,7 @@ loading...
 
 # Clone repository
 
-git clone https:// loading...
+git clone https://github.com/ewerton11/ewtbookmaker.git
 
 # Enter the folder back end
 
