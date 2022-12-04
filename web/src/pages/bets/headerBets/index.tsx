@@ -25,7 +25,7 @@ interface Bets {
   title: string
 }
 
-export function HeaderBets() {
+export default function HeaderBets() {
   useEffect(() => {
     api.get("/bets").then((response) => {
       const betsData = response.data
@@ -36,13 +36,13 @@ export function HeaderBets() {
 
   const [bets, setBets] = useState([])
 
-  function ValueInput(event: FormEvent) {
-    const value: string = event.target.value
+  function ValueInput(event: FormEvent): void {
+    const value: string = (event.target as HTMLInputElement).value
 
     setSearch(value)
   }
 
-  const [value, setSearch] = useState(bets)
+  const [value, setSearch]: any[] = useState(bets)
 
   const filterArray = bets.filter((betSearch: Bets) =>
     betSearch.title.includes(value)
