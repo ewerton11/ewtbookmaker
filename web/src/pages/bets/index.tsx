@@ -29,20 +29,24 @@ import {
 } from "../../styles/pages/bets/style"
 
 export default function MyBets() {
-  // useEffect(() => {
-  //   api.get("/bets").then((response) => {
-  //     const betsData = response.data
+  useEffect(() => {
+    api.get("/bets").then((response) => {
+      const betsData = response.data
 
-  //     setBets(betsData)
-  //   })
-  // }, [])
+      setBets(betsData)
+    })
+  }, [])
 
-  // const [bets, setBets] = useState([])
+  const [bets, setBets] = useState([])
+
+  function selectBets(element: object): void {
+    console.log(element)
+  }
 
   return (
     <>
       <NavBar />
-      <HeaderBets />
+      <HeaderBets bets={bets} eventSelectBets={selectBets} />
       <DivContainer>
         <MainBets>
           <ContainerBets>
