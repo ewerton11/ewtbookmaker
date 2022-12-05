@@ -48,6 +48,10 @@ export default function HeaderBets() {
     betSearch.title.includes(value)
   )
 
+  function selectBets(event: FormEvent): void {
+    console.log(event.target)
+  }
+
   return (
     <Header>
       <ContainerSearch>
@@ -62,7 +66,7 @@ export default function HeaderBets() {
       <ContainerBets>
         {filterArray.map((preview: ItemsBets) => {
           return (
-            <PreviewBets key={preview.id}>
+            <PreviewBets key={preview.id} onClick={selectBets}>
               <ContainerTop>
                 <TitlePreviewBets>
                   <h1>{preview.title}</h1>

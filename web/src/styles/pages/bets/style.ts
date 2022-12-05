@@ -20,8 +20,8 @@ export const MainBets = styled.main`
 `
 
 export const ContainerBets = styled.div`
-  width: 90%;
-  height: 70%;
+  width: 70%;
+  height: 90%;
   border: 1px solid black;
   margin: 3% 4%;
   display: flex;
