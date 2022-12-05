@@ -25,32 +25,18 @@ interface Bets {
   title: string
 }
 
-export default function HeaderBets() {
-  useEffect(() => {
-    api.get("/bets").then((response) => {
-      const betsData = response.data
-
-      setBets(betsData)
-    })
-  }, [])
-
-  const [bets, setBets] = useState([])
-
+export default function HeaderBets(props) {
   function ValueInput(event: FormEvent): void {
     const value: string = (event.target as HTMLInputElement).value
 
     setSearch(value)
   }
 
-  const [value, setSearch]: any[] = useState(bets)
+  const [value, setSearch]: any[] = useState(props.bets)
 
-  const filterArray = bets.filter((betSearch: Bets) =>
+  const filterArray = props.bets.filter((betSearch: Bets) =>
     betSearch.title.includes(value)
   )
-
-  function selectBets(para: any): void {
-    console.log(para)
-  }
 
   return (
     <Header>
@@ -66,7 +52,10 @@ export default function HeaderBets() {
       <ContainerBets>
         {filterArray.map((preview: ItemsBets) => {
           return (
-            <PreviewBets key={preview.id} onClick={() => selectBets(preview)}>
+            <PreviewBets
+              key={preview.id}
+              onClick={() => props.eventSelectBets(preview)}
+            >
               <ContainerTop>
                 <TitlePreviewBets>
                   <h1>{preview.title}</h1>
