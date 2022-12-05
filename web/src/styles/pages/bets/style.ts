@@ -76,7 +76,8 @@ export const MainBet = styled.div`
   & p {
     width: 80%;
     height: 80%;
-    word-wrap: break-word;
+    display: flex;
+    align-items: center;
     font-family: "Roboto", sans-serif;
     font-size: 1.3rem;
     overflow-y: auto;
