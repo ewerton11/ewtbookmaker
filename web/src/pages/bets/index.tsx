@@ -28,7 +28,16 @@ import {
   ValueBets,
 } from "../../styles/pages/bets/style"
 
+export interface BetsData {
+  id: string
+  title: string
+  value: string
+  description: string
+}
+
 export default function MyBets() {
+  const [bets, setBets] = useState([])
+
   useEffect(() => {
     api.get("/bets").then((response) => {
       const betsData = response.data
@@ -37,11 +46,17 @@ export default function MyBets() {
     })
   }, [])
 
-  const [bets, setBets] = useState([])
+  const [selectedBet, setSelectedBet] = useState<BetsData[]>([])
 
-  function selectBets(element: object): void {
-    console.log(element)
+  async function selectBets(id: string) {
+    await api.get(`/bets?id=${id}`).then((response) => {
+      const data: BetsData[] = response.data as BetsData[]
+
+      setSelectedBet(data)
+    })
   }
+
+  console.log(selectedBet, "aqui")
 
   return (
     <>
@@ -55,7 +70,7 @@ export default function MyBets() {
                 <h2>titulo</h2>
               </TitleBets>
               <ValueBets>
-                <h2>R$ valor</h2>
+                <h2>R$ {selectedBet.value}</h2>
               </ValueBets>
             </ContainerTop>
             <BetMaker>

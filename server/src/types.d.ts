@@ -1,3 +1,1 @@
-interface Body {
-  name: string
-}
+
