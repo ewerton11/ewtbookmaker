@@ -1,8 +1,8 @@
 import Image from "next/image"
-import { FormEvent, useEffect, useState } from "react"
+import { FormEvent, useState } from "react"
+import { BetsData } from ".."
 
 import Profile from "../../../assets/image/profile.png"
-import { api } from "../../../lib/axios/axios"
 
 import {
   ContainerBets,
@@ -25,24 +25,19 @@ interface Bets {
   title: string
 }
 
-export function HeaderBets() {
-  useEffect(() => {
-    api.get("/bets").then((response) => {
-      const betsData = response.data
+interface HeaderBetsProps {
+  eventSelectBets: (a: string) => void
+  bets: BetsData[]
+}
 
-      setBets(betsData)
-    })
-  }, [])
+export default function HeaderBets({ eventSelectBets, bets }: HeaderBetsProps) {
+  const [value, setSearch]: any[] = useState(bets)
 
-  const [bets, setBets] = useState([])
-
-  function ValueInput(event: FormEvent) {
-    const value: string = event.target.value
+  function ValueInput(event: FormEvent): void {
+    const value: string = (event.target as HTMLInputElement).value
 
     setSearch(value)
   }
-
-  const [value, setSearch] = useState(bets)
 
   const filterArray = bets.filter((betSearch: Bets) =>
     betSearch.title.includes(value)
@@ -60,9 +55,12 @@ export function HeaderBets() {
         </ContainerInput>
       </ContainerSearch>
       <ContainerBets>
-        {filterArray.map((preview: ItemsBets) => {
+        {filterArray.map((preview) => {
           return (
-            <PreviewBets key={preview.id}>
+            <PreviewBets
+              key={preview.id}
+              onClick={() => eventSelectBets(preview.id)}
+            >
               <ContainerTop>
                 <TitlePreviewBets>
                   <h1>{preview.title}</h1>

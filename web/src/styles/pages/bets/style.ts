@@ -20,8 +20,8 @@ export const MainBets = styled.main`
 `
 
 export const ContainerBets = styled.div`
-  width: 90%;
-  height: 70%;
+  width: 70%;
+  height: 90%;
   border: 1px solid black;
   margin: 3% 4%;
   display: flex;
@@ -55,6 +55,10 @@ export const ValueBets = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  & h2 {
+    color: red;
+  }
 `
 
 export const BetMaker = styled.div`
@@ -76,7 +80,8 @@ export const MainBet = styled.div`
   & p {
     width: 80%;
     height: 80%;
-    word-wrap: break-word;
+    display: flex;
+    align-items: center;
     font-family: "Roboto", sans-serif;
     font-size: 1.3rem;
     overflow-y: auto;
@@ -87,7 +92,17 @@ export const SubBets = styled.div`
   width: 100%;
   height: 65%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    visibility: hidden;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(77, 77, 255);
+    border-radius: 50px;
+  }
 `
 
 export const Against = styled.div`
