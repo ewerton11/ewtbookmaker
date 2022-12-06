@@ -51,7 +51,7 @@ export const ContainerDescription = styled.div`
 
 export const DescriptionPreview = styled.div`
   width: 50%;
-  height: 55%;
+  height: 70%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -62,7 +62,10 @@ export const DescriptionPreview = styled.div`
   & p {
     width: 150px;
     height: 100%;
-    word-wrap: break-word;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
   }
 `
 

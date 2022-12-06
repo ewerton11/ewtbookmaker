@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
 import Image from "next/image"
 
-import { HeaderBets } from "./headerBets"
-import HeaderLogin from "../../components/navbar/navLogin"
+import HeaderBets from "./headerBets"
 import NavBar from "../../components/navbar"
 import Profile from "../../assets/image/profile.png"
 import { api } from "../../lib/axios/axios"
@@ -29,7 +28,16 @@ import {
   ValueBets,
 } from "../../styles/pages/bets/style"
 
+export interface BetsData {
+  id: string
+  title: string
+  value: string
+  description: string
+}
+
 export default function MyBets() {
+  const [bets, setBets] = useState([])
+
   useEffect(() => {
     api.get("/bets").then((response) => {
       const betsData = response.data
@@ -38,85 +46,77 @@ export default function MyBets() {
     })
   }, [])
 
-  const [bets, setBets] = useState([])
+  const [selectedBet, setSelectedBet] = useState<BetsData[]>([])
+
+  async function selectBets(id: string) {
+    await api.get(`/bets/selectedbet/${id}`).then((response) => {
+      const data: BetsData[] = response.data as BetsData[]
+
+      setSelectedBet(data)
+    })
+  }
 
   return (
     <>
       <NavBar />
-      <HeaderBets />
+      <HeaderBets bets={bets} eventSelectBets={selectBets} />
       <DivContainer>
         <MainBets>
-          {bets.map((items: ItemsBets) => {
-            return (
-              <ContainerBets key={items.id}>
-                <ContainerTop>
-                  <TitleBets>
-                    <h2>{items.title}</h2>
-                  </TitleBets>
-                  <ValueBets>
-                    <h2>R$ {items.value}</h2>
-                  </ValueBets>
-                </ContainerTop>
-                <BetMaker>
+          <ContainerBets>
+            <ContainerTop>
+              <TitleBets>
+                <h1>{selectedBet.title}</h1>
+              </TitleBets>
+              <ValueBets>
+                <h2>R$ {selectedBet.value}</h2>
+              </ValueBets>
+            </ContainerTop>
+            <BetMaker>
+              <div>
+                <Image src={Profile} alt="previa de perfil" width={50} />
+              </div>
+              <MainBet>
+                <p>{selectedBet.description}</p>
+              </MainBet>
+            </BetMaker>
+            <SubBets>
+              <Against>
+                <AgainstBet>
+                  <p>Apostando contra</p>
+                </AgainstBet>
+                <div>
+                  <Image src={Profile} alt="previa de perfil" width={30} />
+                </div>
+              </Against>
+              <ToAgree>
+                <ToAgreeBet>
+                  <p>Apostando a favor</p>
+                </ToAgreeBet>
+                <div>
+                  <Image src={Profile} alt="previa de perfil" width={30} />
+                </div>
+              </ToAgree>
+            </SubBets>
+            <DivBottom>
+              <PeopleBets>
+                <ContainerImage>
                   <div>
-                    <Image src={Profile} alt="previa de perfil" width={50} />
+                    <Image src={Profile} alt="previa de perfil" width={25} />
                   </div>
-                  <MainBet>
-                    <p>{items.description}</p>
-                  </MainBet>
-                </BetMaker>
-                <SubBets>
-                  <Against>
-                    <AgainstBet>
-                      <p>Apostando contra</p>
-                    </AgainstBet>
-                    <div>
-                      <Image src={Profile} alt="previa de perfil" width={30} />
-                    </div>
-                  </Against>
-                  <ToAgree>
-                    <ToAgreeBet>
-                      <p>Apostando a favor</p>
-                    </ToAgreeBet>
-                    <div>
-                      <Image src={Profile} alt="previa de perfil" width={30} />
-                    </div>
-                  </ToAgree>
-                </SubBets>
-                <DivBottom>
-                  <PeopleBets>
-                    <ContainerImage>
-                      <div>
-                        <Image
-                          src={Profile}
-                          alt="previa de perfil"
-                          width={25}
-                        />
-                      </div>
-                      <div>
-                        <Image
-                          src={Profile}
-                          alt="previa de perfil"
-                          width={25}
-                        />
-                      </div>
-                      <div>
-                        <Image
-                          src={Profile}
-                          alt="previa de perfil"
-                          width={25}
-                        />
-                      </div>
-                    </ContainerImage>
-                  </PeopleBets>
-                  <ContainerSelectBets>
-                    <SelectAgainst>A favor</SelectAgainst>
-                    <SelectToAgree>Contra</SelectToAgree>
-                  </ContainerSelectBets>
-                </DivBottom>
-              </ContainerBets>
-            )
-          })}
+                  <div>
+                    <Image src={Profile} alt="previa de perfil" width={25} />
+                  </div>
+                  <div>
+                    <Image src={Profile} alt="previa de perfil" width={25} />
+                  </div>
+                </ContainerImage>
+              </PeopleBets>
+              <ContainerSelectBets>
+                <SelectAgainst>A favor</SelectAgainst>
+                <SelectToAgree>Contra</SelectToAgree>
+              </ContainerSelectBets>
+            </DivBottom>
+          </ContainerBets>
         </MainBets>
       </DivContainer>
     </>

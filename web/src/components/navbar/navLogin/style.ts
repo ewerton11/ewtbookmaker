@@ -55,6 +55,6 @@ export const Login = styled.div`
   align-items: center;
   font-family: "Roboto", sans-serif;
   font-size: 0.8rem;
-  color: yellow;
+  color: white;
   font-weight: bold;
 `
