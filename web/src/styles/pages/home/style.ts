@@ -19,4 +19,14 @@ export const Main = styled.main`
   justify-content: center;
   flex-flow: row wrap;
   overflow-y: scroll;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    visibility: hidden;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(77, 77, 255);
+    border-radius: 50px;
+  }
 `
