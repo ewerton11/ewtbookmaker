@@ -10,7 +10,14 @@ const fastify = Fastify({
 })
 
 interface Body {
-  name: string
+  body: { name: string }
+  // name?: string
+}
+
+interface Request {
+  params: {
+    id: string
+  }
 }
 
 fastify.register(require("@fastify/cors"), {
@@ -19,7 +26,7 @@ fastify.register(require("@fastify/cors"), {
 })
 
 fastify.post("/user", async (request, reply) => {
-  const { name } = request.body
+  const { name }: any = request.body
 
   await prisma.user.create({
     data: {
@@ -44,7 +51,7 @@ fastify.post("/bets", async (request, reply) => {
   return reply.status(201).send({ title, value, description })
 })
 
-fastify.get("/bets/selectedbet/:id", async (request, reply) => {
+fastify.get("/bets/selectedbet/:id", async (request: any, reply) => {
   const data = await prisma.bets.findUnique({
     where: {
       id: request.params.id,
