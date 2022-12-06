@@ -44,14 +44,14 @@ fastify.post("/bets", async (request, reply) => {
   return reply.status(201).send({ title, value, description })
 })
 
-fastify.get("/bets/:id", async (request, reply) => {
+fastify.get("/bets/selectedbet/:id", async (request, reply) => {
   const data = await prisma.bets.findUnique({
     where: {
       id: request.params.id,
     },
   })
 
-  return reply.status(200).send(request.params.id)
+  return reply.status(200).send(data)
 })
 
 fastify.get("/bets", async (request, reply) => {

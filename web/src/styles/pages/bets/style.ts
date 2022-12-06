@@ -55,6 +55,10 @@ export const ValueBets = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  & h2 {
+    color: red;
+  }
 `
 
 export const BetMaker = styled.div`
@@ -88,7 +92,17 @@ export const SubBets = styled.div`
   width: 100%;
   height: 65%;
   overflow-x: hidden;
-  overflow-y: scroll;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 10px;
+    visibility: hidden;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(77, 77, 255);
+    border-radius: 50px;
+  }
 `
 
 export const Against = styled.div`
