@@ -46,11 +46,11 @@ export default function MyBets() {
     })
   }, [])
 
-  const [selectedBet, setSelectedBet] = useState<BetsData[]>([])
+  const [selectedBet, setSelectedBet] = useState<BetsData | string>("")
 
   async function selectBets(id: string) {
     await api.get(`/bets/selectedbet/${id}`).then((response) => {
-      const data: BetsData[] = response.data as BetsData[]
+      const data: BetsData = response.data
 
       setSelectedBet(data)
     })
