@@ -3,7 +3,7 @@ import styled from "styled-components"
 export const Nav = styled.nav`
   z-index: 10;
   width: 100%;
-  height: 14%;
+  height: 7%;
   background-color: white;
   position: fixed;
   top: 0;
@@ -13,7 +13,7 @@ export const Nav = styled.nav`
 
 export const ContainerTop = styled.div`
   width: 100%;
-  height: 60%;
+  height: 100%;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: space-between;

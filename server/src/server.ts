@@ -1,4 +1,8 @@
-import Fastify from "fastify"
+import Fastify, {
+  FastifyRequest,
+  RequestBodyDefault,
+  RequestParamsDefault,
+} from "fastify"
 import { PrismaClient } from "@prisma/client"
 
 const prisma = new PrismaClient({
@@ -25,13 +29,11 @@ interface BodyBets {
 }
 
 interface SelectedBet {
-  params: {
-    id: string
-  }
+  params: any
 }
 
-fastify.post("/user", async (request, reply): Promise<BodyUser> => {
-  const { name } = request.body as any as BodyUser
+fastify.post("/user", async (request, reply) => {
+  const { name }: BodyUser = request.body as BodyUser
 
   await prisma.user.create({
     data: {
@@ -42,8 +44,8 @@ fastify.post("/user", async (request, reply): Promise<BodyUser> => {
   return reply.status(201).send({ name })
 })
 
-fastify.post("/bets", async (request, reply): Promise<BodyBets> => {
-  const { title, value, description } = request.body as any as BodyBets
+fastify.post("/bets", async (request, reply) => {
+  const { title, value, description }: BodyBets = request.body as BodyBets
 
   await prisma.bets.create({
     data: {
@@ -58,7 +60,14 @@ fastify.post("/bets", async (request, reply): Promise<BodyBets> => {
 
 fastify.get(
   "/bets/selectedbet/:id",
-  async (request, reply): Promise<object> => {
+  async (
+    request: FastifyRequest<{
+      Params: {
+        id: string
+      }
+    }>,
+    reply
+  ) => {
     const data = await prisma.bets.findUnique({
       where: {
         id: request.params.id,
