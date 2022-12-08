@@ -25,19 +25,18 @@ export default function NavBar() {
           <Li>
             <Link href="/bets">Apostas</Link>
           </Li>
-          <Li>
+          {/* <Li>
             <Link href="/myBets">Suas apostas</Link>
-          </Li>
+          </Li> */}
         </ContainerUl>
-        <ContainerProfile>
+        <NavLogin />
+        {/* <ContainerProfile>
           <DivProfile>
             <Link href="/profile">Perfil</Link>
             <Image src={Profile} width={25} alt="Imagem de perfil" />
           </DivProfile>
-        </ContainerProfile>
+        </ContainerProfile> */}
       </ContainerTop>
-
-      <NavLogin />
     </Nav>
   )
 }

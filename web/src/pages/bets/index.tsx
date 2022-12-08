@@ -46,11 +46,11 @@ export default function MyBets() {
     })
   }, [])
 
-  const [selectedBet, setSelectedBet] = useState<BetsData[]>([])
+  const [selectedBet, setSelectedBet] = useState<BetsData>()
 
   async function selectBets(id: string) {
-    await api.get(`/bets/selectedbet/${id}`).then((response) => {
-      const data: BetsData[] = response.data as BetsData[]
+    await api.get<BetsData>(`/bets/selectedbet/${id}`).then((response) => {
+      const data = response.data
 
       setSelectedBet(data)
     })
@@ -65,10 +65,10 @@ export default function MyBets() {
           <ContainerBets>
             <ContainerTop>
               <TitleBets>
-                <h1>{selectedBet.title}</h1>
+                <h1>{selectedBet?.title}</h1>
               </TitleBets>
               <ValueBets>
-                <h2>R$ {selectedBet.value}</h2>
+                <h2>R$ {selectedBet?.value}</h2>
               </ValueBets>
             </ContainerTop>
             <BetMaker>
@@ -76,7 +76,7 @@ export default function MyBets() {
                 <Image src={Profile} alt="previa de perfil" width={50} />
               </div>
               <MainBet>
-                <p>{selectedBet.description}</p>
+                <p>{selectedBet?.description}</p>
               </MainBet>
             </BetMaker>
             <SubBets>

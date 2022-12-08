@@ -26,20 +26,20 @@ interface Bets {
 }
 
 interface HeaderBetsProps {
-  eventSelectBets: (a: string) => void
+  eventSelectBets: (preview: string) => void
   bets: BetsData[]
 }
 
 export default function HeaderBets({ eventSelectBets, bets }: HeaderBetsProps) {
-  const [value, setSearch]: any[] = useState(bets)
+  const [value, setSearch] = useState<string>("")
 
-  function ValueInput(event: FormEvent): void {
+  function ValueInput(event: FormEvent) {
     const value: string = (event.target as HTMLInputElement).value
 
     setSearch(value)
   }
 
-  const filterArray = bets.filter((betSearch: Bets) =>
+  const filterArray = (bets || []).filter((betSearch: Bets) =>
     betSearch.title.includes(value)
   )
 
