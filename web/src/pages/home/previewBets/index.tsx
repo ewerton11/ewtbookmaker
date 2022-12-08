@@ -1,7 +1,6 @@
 import Image from "next/image"
 import Router from "next/router"
 import { useEffect, useState } from "react"
-import { FormEvent } from "react"
 
 import { api } from "../../../lib/axios/axios"
 
@@ -18,6 +17,8 @@ import {
   ContainerDescription,
 } from "../../../styles/pages/home/previewBets/style"
 
+import { BetsData } from "../../bets"
+
 export default function PreviewBets() {
   useEffect(() => {
     api.get("/bets").then((response) => {
@@ -29,15 +30,20 @@ export default function PreviewBets() {
 
   const [bets, setBets] = useState([])
 
-  function SelectBets(event: FormEvent) {
+  function SelectBets(item: object) {
     Router.push("/bets")
+
+    // console.log(item)
   }
 
   return (
     <>
-      {bets.map((preview: ItemsBets) => {
+      {bets.map((preview: BetsData) => {
         return (
-          <ContainerPreviewBets onClick={SelectBets} key={preview.id}>
+          <ContainerPreviewBets
+            onClick={() => SelectBets(preview)}
+            key={preview.id}
+          >
             <ContainerTop>
               <TitlePreviewBets>
                 <h1>{preview.title}</h1>
