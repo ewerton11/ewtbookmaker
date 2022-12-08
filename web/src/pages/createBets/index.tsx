@@ -6,6 +6,10 @@ import NavBar from "../../components/navbar"
 
 import {
   ButtomCreateBets,
+  ContainerDescription,
+  ContainerForm,
+  ContainerTitle,
+  ContainerValue,
   DivCreateBets,
   DivTop,
   FormCreateBets,
@@ -40,30 +44,38 @@ export default function CreateBets() {
     <>
       <NavBar />
       <DivCreateBets>
-        <FormCreateBets onSubmit={formBets}>
-          <DivTop>
-            <InputCreateTitle
-              type="text"
-              maxLength={20}
-              minLength={2}
-              placeholder="Titulo"
-              onChange={(event) => setBetsTitle(event.target.value)}
-            />
-            <InputCreateValue
-              type="text"
-              maxLength={4}
-              placeholder="Valor $"
-              onChange={(event) => setBetsValue(event.target.value)}
-            />
-          </DivTop>
-          <InputCreateDescription
-            type="text"
-            minLength={5}
-            placeholder="Descriçao"
-            onChange={(event) => setBetsDescription(event.target.value)}
-          />
-          <ButtomCreateBets type="submit">Criar</ButtomCreateBets>
-        </FormCreateBets>
+        <ContainerForm>
+          <FormCreateBets onSubmit={formBets}>
+            <DivTop>
+              <ContainerTitle>
+                <InputCreateTitle
+                  type="text"
+                  maxLength={20}
+                  minLength={2}
+                  placeholder="Titulo"
+                  onChange={(event) => setBetsTitle(event.target.value)}
+                />
+              </ContainerTitle>
+              <ContainerValue>
+                <InputCreateValue
+                  type="text"
+                  maxLength={4}
+                  placeholder="Valor $"
+                  onChange={(event) => setBetsValue(event.target.value)}
+                />
+              </ContainerValue>
+            </DivTop>
+            <ContainerDescription>
+              <InputCreateDescription
+                type="text"
+                minLength={5}
+                placeholder="Descriçao"
+                onChange={(event) => setBetsDescription(event.target.value)}
+              />
+            </ContainerDescription>
+            <ButtomCreateBets type="submit">Criar</ButtomCreateBets>
+          </FormCreateBets>
+        </ContainerForm>
       </DivCreateBets>
     </>
   )
