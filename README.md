@@ -6,7 +6,7 @@ a site where you can create bets with your friends on the topic you prefer
 
 ## Main layout
 
-loading...
+![alt text](https://github.com/ewerton11/assets/blob/main/ewtbookmaker/bookmakerhome.png)
 
 # Technology used
 
