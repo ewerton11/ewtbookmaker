@@ -21,9 +21,13 @@ export const MainBets = styled.main`
 `
 
 export const ContainerBets = styled.div`
-  width: 70%;
+  width: 50%;
   height: 90%;
-  border: 1px solid black;
+  border-top: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
+  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  border-radius: 40px;
   margin: 3% 4%;
   display: flex;
   flex-direction: column;
@@ -63,12 +67,29 @@ export const ValueBets = styled.div`
 `
 
 export const BetMaker = styled.div`
-  width: 100%;
+  width: 99%;
   height: 20%;
-  /* border-bottom: 1px solid black; */
+  margin-left: 1%;
   display: flex;
   justify-content: baseline;
   align-items: center;
+`
+
+export const DivMain = styled.div`
+  width: auto;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & p {
+    position: absolute;
+    bottom: 5%;
+    left: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
 `
 
 export const MainBet = styled.div`
@@ -105,9 +126,25 @@ export const SubBets = styled.div`
     border-radius: 50px;
   }
 `
+export const DivSubs = styled.div`
+  width: auto;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  & p {
+    position: absolute;
+    bottom: 10%;
+    right: 0;
+    font-family: "Roboto", sans-serif;
+    font-size: 0.7rem;
+    color: rgba(0, 0, 0, 0.5);
+  }
+`
 
 export const Against = styled.div`
-  width: 100%;
+  width: 99%;
   height: 25%;
   display: flex;
   justify-content: end;
@@ -135,7 +172,7 @@ export const AgainstBet = styled.div`
 `
 
 export const ToAgree = styled.div`
-  width: 100%;
+  width: 99%;
   height: 25%;
   display: flex;
   justify-content: end;
@@ -193,7 +230,7 @@ export const ContainerSelectBets = styled.div`
 export const SelectAgainst = styled.button`
   width: 45%;
   height: 80%;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   display: flex;
   justify-content: center;
@@ -207,7 +244,7 @@ export const SelectAgainst = styled.button`
 export const SelectToAgree = styled.button`
   width: 45%;
   height: 80%;
-  border: 1px solid black;
+  border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 100px;
   display: flex;
   justify-content: center;
