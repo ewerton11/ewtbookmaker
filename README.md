@@ -56,3 +56,7 @@ npm run build
 # Run front end
 
 npm run start
+
+# Or run as dev
+
+npm run dev
