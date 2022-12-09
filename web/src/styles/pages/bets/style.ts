@@ -16,6 +16,7 @@ export const MainBets = styled.main`
   height: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-flow: row wrap;
 `
 
@@ -215,4 +216,10 @@ export const SelectToAgree = styled.button`
   font-size: 1.3rem;
   color: red;
   cursor: pointer;
+`
+
+export const H1HeaderBets = styled.h1`
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  color: black;
 `
