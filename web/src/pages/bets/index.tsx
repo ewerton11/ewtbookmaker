@@ -16,6 +16,7 @@ import {
   ContainerTop,
   DivBottom,
   DivContainer,
+  H1HeaderBets,
   MainBet,
   MainBets,
   PeopleBets,
@@ -62,61 +63,65 @@ export default function MyBets() {
       <HeaderBets bets={bets} eventSelectBets={selectBets} />
       <DivContainer>
         <MainBets>
-          <ContainerBets>
-            <ContainerTop>
-              <TitleBets>
-                <h1>{selectedBet?.title}</h1>
-              </TitleBets>
-              <ValueBets>
-                <h2>R$ {selectedBet?.value}</h2>
-              </ValueBets>
-            </ContainerTop>
-            <BetMaker>
-              <div>
-                <Image src={Profile} alt="previa de perfil" width={50} />
-              </div>
-              <MainBet>
-                <p>{selectedBet?.description}</p>
-              </MainBet>
-            </BetMaker>
-            <SubBets>
-              <Against>
-                <AgainstBet>
-                  <p>Apostando contra</p>
-                </AgainstBet>
+          {selectedBet?.id ? (
+            <ContainerBets key={selectedBet?.id}>
+              <ContainerTop>
+                <TitleBets>
+                  <h1>{selectedBet?.title}</h1>
+                </TitleBets>
+                <ValueBets>
+                  <h2>R$ {selectedBet?.value}</h2>
+                </ValueBets>
+              </ContainerTop>
+              <BetMaker>
                 <div>
-                  <Image src={Profile} alt="previa de perfil" width={30} />
+                  <Image src={Profile} alt="previa de perfil" width={50} />
                 </div>
-              </Against>
-              <ToAgree>
-                <ToAgreeBet>
-                  <p>Apostando a favor</p>
-                </ToAgreeBet>
-                <div>
-                  <Image src={Profile} alt="previa de perfil" width={30} />
-                </div>
-              </ToAgree>
-            </SubBets>
-            <DivBottom>
-              <PeopleBets>
-                <ContainerImage>
+                <MainBet>
+                  <p>{selectedBet?.description}</p>
+                </MainBet>
+              </BetMaker>
+              <SubBets>
+                <Against>
+                  <AgainstBet>
+                    <p>Apostando contra</p>
+                  </AgainstBet>
                   <div>
-                    <Image src={Profile} alt="previa de perfil" width={25} />
+                    <Image src={Profile} alt="previa de perfil" width={30} />
                   </div>
+                </Against>
+                <ToAgree>
+                  <ToAgreeBet>
+                    <p>Apostando a favor</p>
+                  </ToAgreeBet>
                   <div>
-                    <Image src={Profile} alt="previa de perfil" width={25} />
+                    <Image src={Profile} alt="previa de perfil" width={30} />
                   </div>
-                  <div>
-                    <Image src={Profile} alt="previa de perfil" width={25} />
-                  </div>
-                </ContainerImage>
-              </PeopleBets>
-              <ContainerSelectBets>
-                <SelectAgainst>A favor</SelectAgainst>
-                <SelectToAgree>Contra</SelectToAgree>
-              </ContainerSelectBets>
-            </DivBottom>
-          </ContainerBets>
+                </ToAgree>
+              </SubBets>
+              <DivBottom>
+                <PeopleBets>
+                  <ContainerImage>
+                    <div>
+                      <Image src={Profile} alt="previa de perfil" width={25} />
+                    </div>
+                    <div>
+                      <Image src={Profile} alt="previa de perfil" width={25} />
+                    </div>
+                    <div>
+                      <Image src={Profile} alt="previa de perfil" width={25} />
+                    </div>
+                  </ContainerImage>
+                </PeopleBets>
+                <ContainerSelectBets>
+                  <SelectAgainst>A favor</SelectAgainst>
+                  <SelectToAgree>Contra</SelectToAgree>
+                </ContainerSelectBets>
+              </DivBottom>
+            </ContainerBets>
+          ) : (
+            <H1HeaderBets>Selecione uma aposta</H1HeaderBets>
+          )}
         </MainBets>
       </DivContainer>
     </>
