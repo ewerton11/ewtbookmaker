@@ -21,6 +21,8 @@ a site where you can create bets with your friends on the topic you prefer
 - Typescript
 - Styled components
 - Axios
+- React-hook-form
+- Yup
 
 ## Brack end
 
