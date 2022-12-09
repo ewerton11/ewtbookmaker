@@ -14,8 +14,11 @@ import {
   ContainerImage,
   ContainerSelectBets,
   ContainerTop,
+  Div,
   DivBottom,
   DivContainer,
+  DivMain,
+  DivSubs,
   H1HeaderBets,
   MainBet,
   MainBets,
@@ -74,9 +77,10 @@ export default function MyBets() {
                 </ValueBets>
               </ContainerTop>
               <BetMaker>
-                <div>
-                  <Image src={Profile} alt="previa de perfil" width={50} />
-                </div>
+                <DivMain>
+                  <Image src={Profile} alt="previa de perfil" width={45} />
+                  <p>@ewerTon</p>
+                </DivMain>
                 <MainBet>
                   <p>{selectedBet?.description}</p>
                 </MainBet>
@@ -86,21 +90,23 @@ export default function MyBets() {
                   <AgainstBet>
                     <p>Apostando contra</p>
                   </AgainstBet>
-                  <div>
+                  <DivSubs>
                     <Image src={Profile} alt="previa de perfil" width={30} />
-                  </div>
+                    <p>@ewtReis</p>
+                  </DivSubs>
                 </Against>
                 <ToAgree>
                   <ToAgreeBet>
                     <p>Apostando a favor</p>
                   </ToAgreeBet>
-                  <div>
+                  <DivSubs>
                     <Image src={Profile} alt="previa de perfil" width={30} />
-                  </div>
+                    <p>@Reis</p>
+                  </DivSubs>
                 </ToAgree>
               </SubBets>
               <DivBottom>
-                <PeopleBets>
+                {/* <PeopleBets>
                   <ContainerImage>
                     <div>
                       <Image src={Profile} alt="previa de perfil" width={25} />
@@ -116,7 +122,7 @@ export default function MyBets() {
                 <ContainerSelectBets>
                   <SelectAgainst>A favor</SelectAgainst>
                   <SelectToAgree>Contra</SelectToAgree>
-                </ContainerSelectBets>
+                </ContainerSelectBets> */}
               </DivBottom>
             </ContainerBets>
           ) : (
