@@ -23,10 +23,7 @@ export const MainBets = styled.main`
 export const ContainerBets = styled.div`
   width: 50%;
   height: 90%;
-  border-top: 1px solid rgba(0, 0, 0, 0.2);
-  border-right: 1px solid rgba(0, 0, 0, 0.2);
-  border-bottom: 2px solid rgba(0, 0, 0, 0.2);
-  border-left: 3px solid rgba(0, 0, 0, 0.2);
+  border: 3px solid rgba(0, 0, 0, 0.2);
   border-radius: 40px;
   margin: 3% 4%;
   display: flex;
