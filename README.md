@@ -8,7 +8,7 @@ a site where you can create bets with your friends on the topic you prefer
 
 ![alt text](https://github.com/ewerton11/assets/blob/main/ewtbookmaker/bookmakerhome.png)
 
-## Bets layout
+## Bets layout without being connected
 
 ![alt text](https://github.com/ewerton11/assets/blob/main/ewtbookmaker/bookmakerbets.png)
 
