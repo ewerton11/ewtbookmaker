@@ -20,6 +20,7 @@ fastify.register(require("@fastify/cors"), {
 
 interface BodyUser {
   name: string
+  password: string
 }
 
 interface BodyBets {
@@ -28,20 +29,17 @@ interface BodyBets {
   description: string
 }
 
-interface SelectedBet {
-  params: any
-}
-
 fastify.post("/user", async (request, reply) => {
-  const { name }: BodyUser = request.body as BodyUser
+  const { name, password }: BodyUser = request.body as BodyUser
 
   await prisma.user.create({
     data: {
       name,
+      password,
     },
   })
 
-  return reply.status(201).send({ name })
+  return reply.status(201).send({ name, password })
 })
 
 fastify.post("/bets", async (request, reply) => {

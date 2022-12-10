@@ -7,42 +7,34 @@ import { api } from "../../lib/axios/axios"
 import {
   Buttom,
   Container,
+  ContainerConnect,
+  ContainerInputPassword,
   ContainerInputUser,
   Input,
+  Links,
   Page,
 } from "../../styles/pages/login/style"
 import Link from "next/link"
 
 export default function Login() {
-  const [userName, setUserName] = useState("")
-  const router = useRouter()
-
-  async function createUser(event: FormEvent) {
-    event.preventDefault()
-
-    try {
-      await api.post("/user", {
-        name: userName,
-      })
-      router.push("/")
-    } catch {
-      alert("Esse usuario ja existe")
-    }
-  }
-
   return (
     <Page>
-      <Container onSubmit={createUser}>
-        <Link href={"/"}>Registra-se</Link>
-        <ContainerInputUser>
-          <Input
-            type="text"
-            placeholder="Nome"
-            onChange={(event) => setUserName(event.target.value)}
-          />
-        </ContainerInputUser>
-        <Buttom type="submit">confirmar</Buttom>
-        <Link href={"/"}>Voltar</Link>
+      <Container>
+        <Links>
+          <Link href={"/login/register"}>Registra-se</Link>
+        </Links>
+        <ContainerConnect>
+          <ContainerInputUser>
+            <Input type="text" placeholder="Nome" />
+          </ContainerInputUser>
+          <ContainerInputPassword>
+            <Input type="text" placeholder="senha" />
+          </ContainerInputPassword>
+          <Buttom type="submit">confirmar</Buttom>
+        </ContainerConnect>
+        <Links>
+          <Link href={"/"}>Voltar</Link>
+        </Links>
       </Container>
     </Page>
   )
