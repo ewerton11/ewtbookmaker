@@ -26,20 +26,33 @@ export const Container = styled.form`
   align-items: center;
 `
 
-export const Link = styled.link`
-  color: blue;
-  font-size: 20px;
+export const Links = styled.p`
+  & a {
+    font-family: "Roboto", sans-serif;
+    font-size: 1.2rem;
+    color: white;
+    transition: ease-in 0.2s;
+  }
+
+  & a:hover {
+    color: rgb(77, 77, 255);
+  }
+`
+
+export const ContainerConnect = styled.div`
+  width: 90%;
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export const ContainerInputUser = styled.div`
   width: 90%;
   height: 20%;
   background-color: white;
-  border-radius: 50px;
-  /* position: absolute;
-  top: 23%;
-  left: 50%;
-  transform: translateX(-50%); */
+  border-radius: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -52,15 +65,21 @@ export const Input = styled.input`
   font-size: 1.5rem;
 `
 
-export const Buttom = styled.button`
+export const ContainerInputPassword = styled.div`
   width: 90%;
   height: 20%;
+  background-color: white;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
+
+export const Buttom = styled.button`
+  width: 90%;
+  height: 25%;
   border-radius: 50px;
   background-color: blue;
-  /* position: absolute;
-  bottom: 23%;
-  left: 50%;
-  transform: translateX(-50%); */
   font-family: "Roboto", sans-serif;
   font-size: 2rem;
   color: white;
