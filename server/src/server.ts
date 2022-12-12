@@ -1,9 +1,6 @@
-import Fastify, {
-  FastifyRequest,
-  RequestBodyDefault,
-  RequestParamsDefault,
-} from "fastify"
+import Fastify, { FastifyReply, FastifyRequest } from "fastify"
 import { PrismaClient } from "@prisma/client"
+import { sign, verify } from "jsonwebtoken"
 
 const prisma = new PrismaClient({
   // log: ["query"],
@@ -29,17 +26,45 @@ interface BodyBets {
   description: string
 }
 
+type Tokenpayload = {
+  id: string
+}
+
 fastify.post("/user", async (request, reply) => {
   const { name, password }: BodyUser = request.body as BodyUser
 
-  await prisma.user.create({
-    data: {
-      name,
-      password,
-    },
-  })
+  const user = await prisma.user.findUnique({ where: { name } })
 
-  return reply.status(201).send({ name, password })
+  if (!user) {
+    await prisma.user.create({
+      data: {
+        name,
+        password,
+      },
+    })
+
+    return reply.status(201).send({ name, password })
+  } else {
+    return reply.status(404).send({ error: "user not found" })
+  }
+})
+
+fastify.get("/user/:name/:password", async (request: FastifyRequest, reply) => {
+  const { name, password } = request.params as BodyUser
+
+  const user = await prisma.user.findUnique({ where: { name } })
+
+  if (!user) {
+    return reply.status(400).send({ error: "user invalid" })
+  }
+
+  if (password !== user.password) {
+    return reply.status(400).send({ error: "password invalid" })
+  }
+
+  const token = sign({ id: user.id }, "secret", { expiresIn: "1d" })
+
+  return reply.status(201).send({ name, token })
 })
 
 fastify.post("/bets", async (request, reply) => {
@@ -91,3 +116,22 @@ const start = async () => {
   }
 }
 start()
+
+function authMiddlwares(request: FastifyRequest, reply: FastifyReply) {
+  const { authorization } = request.headers
+
+  if (!authorization) {
+    return reply.status(401).send({ error: "token not provided" })
+  }
+
+  const [, token] = authorization.split("")
+
+  try {
+    const decoded = verify(token, "secret")
+    const { id } = decoded as Tokenpayload
+
+    request.userId = id
+  } catch {
+    return reply.status(401).send({ error: "token invalid" })
+  }
+}
