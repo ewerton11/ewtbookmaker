@@ -15,7 +15,7 @@ import {
   Page,
 } from "../../../styles/pages/login/style"
 
-interface User {
+export interface User {
   user: string
   password: string
 }

@@ -42,11 +42,10 @@ fastify.post("/user", async (request, reply) => {
         password,
       },
     })
-
-    return reply.status(201).send({ name, password })
-  } else {
-    return reply.status(404).send({ error: "user not found" })
+    return reply.status(201).send({ name })
   }
+
+  return reply.status(404).send({ error: "user not found" })
 })
 
 fastify.get("/user/:name/:password", async (request: FastifyRequest, reply) => {
