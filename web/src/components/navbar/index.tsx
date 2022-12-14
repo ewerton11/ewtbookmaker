@@ -30,17 +30,25 @@ export default function NavBar() {
           <Li>
             <Link href="/bets">Apostas</Link>
           </Li>
-          {/* <Li>
-            <Link href="/myBets">Suas apostas</Link>
-          </Li> */}
+          {auth.data === null ? (
+            ""
+          ) : (
+            <Li>
+              <Link href="/myBets">Suas apostas</Link>
+            </Li>
+          )}
         </ContainerUl>
         <NavLogin />
-        {/* <ContainerProfile>
-          <DivProfile>
-            <Link href="/profile">Perfil</Link>
-            <Image src={Profile} width={25} alt="Imagem de perfil" />
-          </DivProfile>
-        </ContainerProfile> */}
+        {auth.data === null ? (
+          ""
+        ) : (
+          <ContainerProfile>
+            <DivProfile>
+              <Link href="/profile">Perfil</Link>
+              <Image src={Profile} width={25} alt="Imagem de perfil" />
+            </DivProfile>
+          </ContainerProfile>
+        )}
       </ContainerTop>
     </Nav>
   )
