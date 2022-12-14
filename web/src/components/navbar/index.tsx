@@ -3,6 +3,8 @@ import Image from "next/image"
 
 import NavLogin from "./navLogin"
 
+import { AuthContext } from "../../context/auth/authContext"
+
 import Profile from "../../assets/image/profile.png"
 
 import {
@@ -13,8 +15,11 @@ import {
   Li,
   Nav,
 } from "./style"
+import { useContext } from "react"
 
 export default function NavBar() {
+  const auth = useContext(AuthContext)
+
   return (
     <Nav>
       <ContainerTop>

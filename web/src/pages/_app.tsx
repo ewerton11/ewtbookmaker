@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import { AuthProviders } from "../context/auth/authContext"
+import { RequireAuth } from "../context/auth/requireAuth"
 import GlobalStyle from "../styles/global"
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -21,7 +22,9 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
 
       <AuthProviders>
-        <Component {...pageProps} />
+        <RequireAuth>
+          <Component {...pageProps} />
+        </RequireAuth>
       </AuthProviders>
       <GlobalStyle />
     </>

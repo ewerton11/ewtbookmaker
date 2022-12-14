@@ -9,13 +9,11 @@ export default function NavLogin() {
       <DivRegister>
         <Register>Registre-se</Register>
       </DivRegister>
-      <RequireAuth>
-        <DivLogin>
-          <Link href={"/login"}>
-            <Login>Login</Login>
-          </Link>
-        </DivLogin>
-      </RequireAuth>
+      <DivLogin>
+        <Link href={"/login"}>
+          <Login>Login</Login>
+        </Link>
+      </DivLogin>
     </ContainerLogin>
   )
 }
