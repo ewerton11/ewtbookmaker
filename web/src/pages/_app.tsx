@@ -22,9 +22,7 @@ export default function App({ Component, pageProps }: AppProps) {
       </div>
 
       <AuthProviders>
-        <RequireAuth>
-          <Component {...pageProps} />
-        </RequireAuth>
+        <Component {...pageProps} />
       </AuthProviders>
       <GlobalStyle />
     </>
