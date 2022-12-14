@@ -12,6 +12,10 @@ a site where you can create bets with your friends on the topic you prefer
 
 ![alt text](https://github.com/ewerton11/ewtbookmaker/blob/main/web/src/assets/layoutGithub/betsConnected.png)
 
+## Bet creation layout
+
+![alt text](https://github.com/ewerton11/ewtbookmaker/blob/main/web/src/assets/layoutGithub/createBetsConnected.png)
+
 # Technology used
 
 ## Front end
