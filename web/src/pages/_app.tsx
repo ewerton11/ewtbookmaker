@@ -1,6 +1,7 @@
 import type { AppProps } from "next/app"
 import Head from "next/head"
 import { AuthProviders } from "../context/auth/authContext"
+import { RequireAuth } from "../context/auth/requireAuth"
 import GlobalStyle from "../styles/global"
 
 export default function App({ Component, pageProps }: AppProps) {
