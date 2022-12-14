@@ -6,7 +6,7 @@ a site where you can create bets with your friends on the topic you prefer
 
 ## Main layout
 
-![alt text](https://github.com/ewerton11/assets/blob/main/ewtbookmaker/bookmakerhome.png)
+![alt text](https://github.com/ewerton11/ewtbookmaker/web/src/assets/image/layoutGitHub/homeConnected.png)
 
 ## Bets layout without being connected
 
@@ -23,11 +23,13 @@ a site where you can create bets with your friends on the topic you prefer
 - Axios
 - React-hook-form
 - Yup
+- ContextAPI
 
 ## Brack end
 
 - Prisma
 - Fastify
+- JWT
 
 # How to run project
 
