@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import Image from "next/image"
 
 import HeaderBets from "./headerBets"
@@ -30,6 +30,7 @@ import {
   ToAgreeBet,
   ValueBets,
 } from "../../styles/pages/bets/style"
+import { AuthContext } from "../../context/auth/authContext"
 
 export interface BetsData {
   id: string
@@ -39,6 +40,7 @@ export interface BetsData {
 }
 
 export default function MyBets() {
+  const auth = useContext(AuthContext)
   const [bets, setBets] = useState([])
 
   useEffect(() => {
@@ -105,7 +107,7 @@ export default function MyBets() {
                 </ToAgree>
               </SubBets>
               <DivBottom>
-                {/* <PeopleBets>
+                <PeopleBets>
                   <ContainerImage>
                     <div>
                       <Image src={Profile} alt="previa de perfil" width={25} />
@@ -118,10 +120,14 @@ export default function MyBets() {
                     </div>
                   </ContainerImage>
                 </PeopleBets>
-                <ContainerSelectBets>
-                  <SelectAgainst>A favor</SelectAgainst>
-                  <SelectToAgree>Contra</SelectToAgree>
-                </ContainerSelectBets> */}
+                {auth.data === null ? (
+                  ""
+                ) : (
+                  <ContainerSelectBets>
+                    <SelectAgainst>A favor</SelectAgainst>
+                    <SelectToAgree>Contra</SelectToAgree>
+                  </ContainerSelectBets>
+                )}
               </DivBottom>
             </ContainerBets>
           ) : (

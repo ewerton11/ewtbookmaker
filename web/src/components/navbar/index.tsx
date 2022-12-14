@@ -3,6 +3,8 @@ import Image from "next/image"
 
 import NavLogin from "./navLogin"
 
+import { AuthContext } from "../../context/auth/authContext"
+
 import Profile from "../../assets/image/profile.png"
 
 import {
@@ -13,8 +15,11 @@ import {
   Li,
   Nav,
 } from "./style"
+import { useContext } from "react"
 
 export default function NavBar() {
+  const auth = useContext(AuthContext)
+
   return (
     <Nav>
       <ContainerTop>
@@ -25,17 +30,25 @@ export default function NavBar() {
           <Li>
             <Link href="/bets">Apostas</Link>
           </Li>
-          {/* <Li>
-            <Link href="/myBets">Suas apostas</Link>
-          </Li> */}
+          {auth.data === null ? (
+            ""
+          ) : (
+            <Li>
+              <Link href="/myBets">Suas apostas</Link>
+            </Li>
+          )}
         </ContainerUl>
         <NavLogin />
-        {/* <ContainerProfile>
-          <DivProfile>
-            <Link href="/profile">Perfil</Link>
-            <Image src={Profile} width={25} alt="Imagem de perfil" />
-          </DivProfile>
-        </ContainerProfile> */}
+        {auth.data === null ? (
+          ""
+        ) : (
+          <ContainerProfile>
+            <DivProfile>
+              <Link href="/profile">Perfil</Link>
+              <Image src={Profile} width={25} alt="Imagem de perfil" />
+            </DivProfile>
+          </ContainerProfile>
+        )}
       </ContainerTop>
     </Nav>
   )

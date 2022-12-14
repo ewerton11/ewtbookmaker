@@ -25,6 +25,8 @@ import {
   SpanTitle,
   SpanValue,
 } from "../../styles/pages/createBets/style"
+import { useContext } from "react"
+import { AuthContext } from "../../context/auth/authContext"
 
 interface BetsData {
   title: string
@@ -41,6 +43,8 @@ const schema = yup
   .required()
 
 export default function CreateBets() {
+  const auth = useContext(AuthContext)
+
   const {
     register,
     handleSubmit,
@@ -108,7 +112,11 @@ export default function CreateBets() {
                 <SpanDescription>{errors.description?.message}</SpanDescription>
               )}
             </DivDescription>
-            <ButtomCreateBets type="submit">Criar</ButtomCreateBets>
+            {auth.data === null ? (
+              ""
+            ) : (
+              <ButtomCreateBets type="submit">Criar</ButtomCreateBets>
+            )}
           </FormCreateBets>
         </ContainerForm>
       </DivCreateBets>
