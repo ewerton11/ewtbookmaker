@@ -14,7 +14,6 @@ import {
   ContainerImage,
   ContainerSelectBets,
   ContainerTop,
-  Div,
   DivBottom,
   DivContainer,
   DivMain,

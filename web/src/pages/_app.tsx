@@ -1,5 +1,6 @@
 import type { AppProps } from "next/app"
 import Head from "next/head"
+import { AuthProviders } from "../context/auth/authContext"
 import GlobalStyle from "../styles/global"
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         </Head>
       </div>
 
-      <Component {...pageProps} />
+      <AuthProviders>
+        <Component {...pageProps} />
+      </AuthProviders>
       <GlobalStyle />
     </>
   )

@@ -1,9 +1,6 @@
-import Fastify, {
-  FastifyRequest,
-  RequestBodyDefault,
-  RequestParamsDefault,
-} from "fastify"
+import Fastify, { FastifyReply, FastifyRequest } from "fastify"
 import { PrismaClient } from "@prisma/client"
+import { sign, verify } from "jsonwebtoken"
 
 const prisma = new PrismaClient({
   // log: ["query"],
@@ -20,6 +17,7 @@ fastify.register(require("@fastify/cors"), {
 
 interface BodyUser {
   name: string
+  password: string
 }
 
 interface BodyBets {
@@ -28,20 +26,44 @@ interface BodyBets {
   description: string
 }
 
-interface SelectedBet {
-  params: any
+type Tokenpayload = {
+  id: string
 }
 
+fastify.post("/auth", async (request, reply) => {
+  const { name, password }: BodyUser = request.body as BodyUser
+
+  const user = await prisma.user.findUnique({ where: { name } })
+
+  if (!user) {
+    return reply.send({ error: "user not found" })
+  }
+
+  if (password !== user.password) {
+    return reply.send({ error: "password invalid" })
+  }
+
+  const token = sign({ id: user.id }, "secret", { expiresIn: "1d" })
+
+  return reply.status(201).send({ name, password, token })
+})
+
 fastify.post("/user", async (request, reply) => {
-  const { name }: BodyUser = request.body as BodyUser
+  const { name, password }: BodyUser = request.body as BodyUser
 
-  await prisma.user.create({
-    data: {
-      name,
-    },
-  })
+  const user = await prisma.user.findUnique({ where: { name } })
 
-  return reply.status(201).send({ name })
+  if (!user) {
+    await prisma.user.create({
+      data: {
+        name,
+        password,
+      },
+    })
+    return reply.status(201).send({ name })
+  }
+
+  return reply.status(404).send({ error: "user not found" })
 })
 
 fastify.post("/bets", async (request, reply) => {
@@ -93,3 +115,22 @@ const start = async () => {
   }
 }
 start()
+
+function authMiddlwares(request: FastifyRequest, reply: FastifyReply) {
+  const { authorization } = request.headers
+
+  if (!authorization) {
+    return reply.status(401).send({ error: "token not provided" })
+  }
+
+  const [, token] = authorization.split("")
+
+  try {
+    const decoded = verify(token, "secret")
+    const { id } = decoded as Tokenpayload
+
+    request.userId = id
+  } catch {
+    return reply.status(401).send({ error: "token invalid" })
+  }
+}
