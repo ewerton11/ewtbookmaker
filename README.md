@@ -6,11 +6,11 @@ a site where you can create bets with your friends on the topic you prefer
 
 ## Main layout
 
-![alt text](https://github.com/ewerton11/ewtbookmaker/web/src/assets/image/layoutGitHub/homeConnected.png)
+![alt text](https://github.com/ewerton11/ewtbookmaker/blob/main/web/src/assets/layoutGithub/homeConnected.png)
 
-## Bets layout without being connected
+## Bets layout connected
 
-![alt text](https://github.com/ewerton11/assets/blob/main/ewtbookmaker/bookmakerbets.png)
+![alt text](https://github.com/ewerton11/ewtbookmaker/blob/main/web/src/assets/layoutGithub/betsConnected.png)
 
 # Technology used
 
