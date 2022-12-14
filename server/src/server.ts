@@ -30,6 +30,24 @@ type Tokenpayload = {
   id: string
 }
 
+fastify.post("/auth", async (request, reply) => {
+  const { name, password }: BodyUser = request.body as BodyUser
+
+  const user = await prisma.user.findUnique({ where: { name } })
+
+  if (!user) {
+    return reply.send({ error: "user not found" })
+  }
+
+  if (password !== user.password) {
+    return reply.send({ error: "password invalid" })
+  }
+
+  const token = sign({ id: user.id }, "secret", { expiresIn: "1d" })
+
+  return reply.status(201).send({ name, password, token })
+})
+
 fastify.post("/user", async (request, reply) => {
   const { name, password }: BodyUser = request.body as BodyUser
 
@@ -46,24 +64,6 @@ fastify.post("/user", async (request, reply) => {
   }
 
   return reply.status(404).send({ error: "user not found" })
-})
-
-fastify.get("/user/:name/:password", async (request: FastifyRequest, reply) => {
-  const { name, password } = request.params as BodyUser
-
-  const user = await prisma.user.findUnique({ where: { name } })
-
-  if (!user) {
-    return reply.status(400).send({ error: "user invalid" })
-  }
-
-  if (password !== user.password) {
-    return reply.status(400).send({ error: "password invalid" })
-  }
-
-  const token = sign({ id: user.id }, "secret", { expiresIn: "1d" })
-
-  return reply.status(201).send({ name, token })
 })
 
 fastify.post("/bets", async (request, reply) => {

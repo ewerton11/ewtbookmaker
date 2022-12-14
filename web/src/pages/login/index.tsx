@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { FormEvent } from "react"
 import { useRouter } from "next/router"
 
@@ -20,6 +20,7 @@ import {
 } from "../../styles/pages/login/style"
 import Link from "next/link"
 import { User } from "./register"
+import { AuthContext } from "../../context/auth/authContext"
 
 interface Body {
   token: string
@@ -34,7 +35,7 @@ const schema = yup
   .required()
 
 export default function Login() {
-  const router = useRouter()
+  const auth = useContext(AuthContext)
 
   const {
     register,
@@ -45,19 +46,8 @@ export default function Login() {
   })
 
   async function connectUser(user: User) {
-    try {
-      await api.get(`/user/${user.user}/${user.password}`).then((response) => {
-        const data: Body = response.data
-
-        localStorage.setItem("user", data.name)
-        localStorage.setItem("token", data.token)
-
-        router.push("/")
-        // console.log(data.token)
-      })
-    } catch {
-      alert("user ou senha invalida")
-    }
+    auth.signin(user.user, user.password)
+    // console.log(user.user, user.password)
   }
 
   return (
