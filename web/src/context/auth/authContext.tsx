@@ -20,6 +20,18 @@ export const AuthProviders = ({ children }: { children: JSX.Element }) => {
   const router = useRouter()
   const [data, setData] = useState<Data | null>(null)
 
+  useEffect(() => {
+    const validate = async () => {
+      const storageToken = localStorage.getItem("token")
+      const storageUser = localStorage.getItem("user")
+
+      if (storageToken && storageUser) {
+        setData("authenticated")
+      }
+    }
+    validate()
+  }, [])
+
   const signin = async (name: string, password: string) => {
     const { data } = await api.post("/auth", { name, password })
 
