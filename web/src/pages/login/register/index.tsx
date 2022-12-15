@@ -11,9 +11,12 @@ import {
   Container,
   ContainerInputPassword,
   ContainerInputUser,
+  ContainerLinks,
   Input,
+  Links,
   Page,
 } from "../../../styles/pages/login/style"
+import Link from "next/link"
 
 export interface User {
   user: string
@@ -81,6 +84,14 @@ export default function Register() {
             </ContainerInputPassword>
             <Buttom type="submit">confirmar</Buttom>
           </ContainerRegister>
+          <ContainerLinks>
+            <Links>
+              <Link href={"/"}>Voltar</Link>
+            </Links>
+            <Links>
+              <Link href={"/login"}>Login</Link>
+            </Links>
+          </ContainerLinks>
         </Container>
       </Page>
     </>
