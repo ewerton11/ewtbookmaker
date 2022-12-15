@@ -86,7 +86,7 @@ export default function Register() {
           </ContainerRegister>
           <ContainerLinks>
             <Links>
-              <Link href={"/"}>Voltar</Link>
+              <Link href={"/"}>Home</Link>
             </Links>
             <Links>
               <Link href={"/login"}>Login</Link>
