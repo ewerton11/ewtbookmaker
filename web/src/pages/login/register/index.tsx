@@ -71,6 +71,7 @@ export default function Register() {
                 type="text"
                 minLength={3}
                 maxLength={10}
+                autoComplete="off"
                 placeholder="crie seu user"
               />
             </ContainerInputUser>
@@ -79,6 +80,7 @@ export default function Register() {
                 {...register("password")}
                 type="password"
                 minLength={3}
+                autoComplete="off"
                 placeholder="crie sua senha"
               />
             </ContainerInputPassword>

@@ -21,11 +21,10 @@ export const MainBets = styled.main`
 `
 
 export const ContainerBets = styled.div`
-  width: 50%;
-  height: 90%;
-  border: 3px solid rgba(0, 0, 0, 0.2);
-  border-radius: 40px;
-  margin: 3% 4%;
+  width: 70%;
+  height: 95%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
   display: flex;
   flex-direction: column;
 `
@@ -47,7 +46,9 @@ export const TitleBets = styled.div`
   align-items: center;
 
   & h1 {
-    margin-left: 5%;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    color: blue;
   }
 `
 
@@ -103,7 +104,7 @@ export const MainBet = styled.div`
     align-items: center;
     font-family: "Roboto", sans-serif;
     font-size: 1.3rem;
-    overflow-y: auto;
+    overflow-y: hidden;
   }
 `
 
