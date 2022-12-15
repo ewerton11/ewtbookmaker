@@ -13,7 +13,9 @@ export default function NavLogin() {
       {auth.data === null ? (
         <ContainerLogin>
           <DivRegister>
-            <Register>Registre-se</Register>
+            <Register>
+              <Link href={"/login/register"}>Registre-se</Link>
+            </Register>
           </DivRegister>
           <DivLogin>
             <Link href={"/login"}>

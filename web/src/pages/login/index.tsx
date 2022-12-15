@@ -14,6 +14,7 @@ import {
   ContainerConnect,
   ContainerInputPassword,
   ContainerInputUser,
+  ContainerLinks,
   Input,
   Links,
   Page,
@@ -53,9 +54,6 @@ export default function Login() {
   return (
     <Page>
       <Container onSubmit={handleSubmit(connectUser)}>
-        <Links>
-          <Link href={"/login/register"}>Registra-se</Link>
-        </Links>
         <ContainerConnect>
           <ContainerInputUser>
             <Input {...register("user")} type="text" placeholder="Nome" />
@@ -65,9 +63,14 @@ export default function Login() {
           </ContainerInputPassword>
           <Buttom type="submit">confirmar</Buttom>
         </ContainerConnect>
-        <Links>
-          <Link href={"/"}>Voltar</Link>
-        </Links>
+        <ContainerLinks>
+          <Links>
+            <Link href={"/"}>Home</Link>
+          </Links>
+          <Links>
+            <Link href={"/login/register"}>Registra-se</Link>
+          </Links>
+        </ContainerLinks>
       </Container>
     </Page>
   )

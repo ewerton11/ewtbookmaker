@@ -12,11 +12,6 @@ export const DivRegister = styled.div`
   width: 50%;
   height: 70%;
   cursor: pointer;
-  transition: ease 0.3s;
-
-  &:hover {
-    color: #5286d3;
-  }
 `
 
 export const Register = styled.div`
@@ -25,9 +20,18 @@ export const Register = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.8rem;
-  font-weight: bold;
+
+  & a {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: blue;
+    transition: ease 0.3s;
+  }
+
+  & a:hover {
+    color: #5286d3;
+  }
 `
 
 export const DivLogin = styled.div`
