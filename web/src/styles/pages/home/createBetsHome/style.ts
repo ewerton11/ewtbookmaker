@@ -19,6 +19,7 @@ export const ButtomCreateBetsHome = styled.button`
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
   color: white;
+  cursor: pointer;
   transition: ease 0.3s;
 
   &:hover {

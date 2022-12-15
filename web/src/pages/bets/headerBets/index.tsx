@@ -66,7 +66,12 @@ export default function HeaderBets({ eventSelectBets, bets }: HeaderBetsProps) {
                   <h1>{preview.title}</h1>
                 </TitlePreviewBets>
                 <ValuePreview>
-                  <h1>R$ {preview.value}</h1>
+                  <h2>
+                    {Intl.NumberFormat("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    }).format(preview.value)}
+                  </h2>
                 </ValuePreview>
               </ContainerTop>
               <ContainerDescription>
@@ -74,7 +79,11 @@ export default function HeaderBets({ eventSelectBets, bets }: HeaderBetsProps) {
                   <Image src={Profile} alt="previa de perfil" width={30} />
                 </div>
                 <DescriptionPreview>
-                  <p>{preview.description}</p>
+                  <p>
+                    {preview.description.length > 30
+                      ? `${preview.description.substring(0, 30)}...`
+                      : preview.description}
+                  </p>
                 </DescriptionPreview>
               </ContainerDescription>
             </PreviewBets>

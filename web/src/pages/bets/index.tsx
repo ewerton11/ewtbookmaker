@@ -35,7 +35,7 @@ import { AuthContext } from "../../context/auth/authContext"
 export interface BetsData {
   id: string
   title: string
-  value: string
+  value: number
   description: string
 }
 
@@ -71,10 +71,15 @@ export default function MyBets() {
             <ContainerBets key={selectedBet?.id}>
               <ContainerTop>
                 <TitleBets>
-                  <h1>{selectedBet?.title}</h1>
+                  <h1>{selectedBet?.title.toLocaleUpperCase()}</h1>
                 </TitleBets>
                 <ValueBets>
-                  <h2>R$ {selectedBet?.value}</h2>
+                  <h2>
+                    {Intl.NumberFormat("pt-br", {
+                      style: "currency",
+                      currency: "BRL",
+                    }).format(selectedBet?.value)}
+                  </h2>
                 </ValueBets>
               </ContainerTop>
               <BetMaker>

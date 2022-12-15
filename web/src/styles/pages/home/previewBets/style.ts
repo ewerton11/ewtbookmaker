@@ -26,8 +26,12 @@ export const TitlePreviewBets = styled.div`
   margin-left: 5%;
   display: flex;
   align-items: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.5rem;
+
+  & h1 {
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+  }
 `
 
 export const ValuePreview = styled.div`
@@ -36,9 +40,11 @@ export const ValuePreview = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 0.5rem;
-  color: red;
+
+  & h2 {
+    font-family: "Roboto", sans-serif;
+    font-size: 0.8rem;
+  }
 `
 
 export const ContainerDescription = styled.div`

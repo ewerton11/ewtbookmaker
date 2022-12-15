@@ -49,7 +49,12 @@ export default function PreviewBets() {
                 <h1>{preview.title}</h1>
               </TitlePreviewBets>
               <ValuePreview>
-                <h2>R$ {preview.value}</h2>
+                <h2>
+                  {Intl.NumberFormat("pt-br", {
+                    style: "currency",
+                    currency: "BRL",
+                  }).format(preview.value)}
+                </h2>
               </ValuePreview>
             </ContainerTop>
             <ContainerDescription>
@@ -57,7 +62,11 @@ export default function PreviewBets() {
                 <Image src={Profile} alt="previa de perfil" width={30} />
               </div>
               <DescriptionPreview>
-                <p>{preview.description}</p>
+                <p>
+                  {preview.description.length > 47
+                    ? `${preview.description.substring(0, 47)}...`
+                    : preview.description}
+                </p>
               </DescriptionPreview>
             </ContainerDescription>
             <PeopleBetting>
