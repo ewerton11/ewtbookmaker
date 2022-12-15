@@ -65,7 +65,7 @@ export default function Login() {
         </ContainerConnect>
         <ContainerLinks>
           <Links>
-            <Link href={"/"}>Voltar</Link>
+            <Link href={"/"}>Home</Link>
           </Links>
           <Links>
             <Link href={"/login/register"}>Registra-se</Link>
