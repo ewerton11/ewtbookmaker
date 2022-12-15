@@ -56,10 +56,20 @@ export default function Login() {
       <Container onSubmit={handleSubmit(connectUser)}>
         <ContainerConnect>
           <ContainerInputUser>
-            <Input {...register("user")} type="text" placeholder="Nome" />
+            <Input
+              {...register("user")}
+              type="text"
+              autoComplete="off"
+              placeholder="Nome"
+            />
           </ContainerInputUser>
           <ContainerInputPassword>
-            <Input {...register("password")} type="text" placeholder="senha" />
+            <Input
+              {...register("password")}
+              type="text"
+              autoComplete="off"
+              placeholder="senha"
+            />
           </ContainerInputPassword>
           <Buttom type="submit">confirmar</Buttom>
         </ContainerConnect>

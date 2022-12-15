@@ -29,7 +29,7 @@ export const FormCreateBets = styled.form`
 
 export const DivTop = styled.div`
   width: 100%;
-  height: 15%;
+  height: 10%;
   margin-top: 10%;
   display: flex;
   justify-content: space-between;
@@ -44,7 +44,7 @@ export const DivTitle = styled.div`
 
 export const ContainerTitle = styled.div`
   width: 100%;
-  height: 70%;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   display: flex;
@@ -83,7 +83,7 @@ export const DivValue = styled.div`
 
 export const ContainerValue = styled.div`
   width: 100%;
-  height: 70%;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   display: flex;
@@ -114,7 +114,7 @@ export const SpanValue = styled.span`
 
 export const DivDescription = styled.div`
   width: 100%;
-  height: 20%;
+  height: 10%;
   position: relative;
   margin-top: 5%;
   display: flex;
@@ -125,7 +125,7 @@ export const DivDescription = styled.div`
 
 export const ContainerDescription = styled.div`
   width: 100%;
-  height: 60%;
+  height: 100%;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
   display: flex;
@@ -155,13 +155,15 @@ export const SpanDescription = styled.span`
 `
 
 export const ButtomCreateBets = styled.button`
-  width: 100%;
+  width: 70%;
   height: 10%;
   background-color: rgb(77, 77, 255);
   border-radius: 15px;
   margin-top: 10%;
   font-family: "Roboto", sans-serif;
   font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
   transition: ease 0.3s;
 
   &:hover {

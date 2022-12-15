@@ -81,6 +81,7 @@ export default function CreateBets() {
                     type="text"
                     minLength={2}
                     maxLength={20}
+                    autoComplete="off"
                     placeholder="Titulo"
                   />
                 </ContainerTitle>
@@ -92,6 +93,7 @@ export default function CreateBets() {
                     {...register("value")}
                     minLength={1}
                     maxLength={4}
+                    autoComplete="off"
                     placeholder="Valor $"
                   />
                 </ContainerValue>
@@ -103,8 +105,9 @@ export default function CreateBets() {
                 <InputCreateDescription
                   {...register("description")}
                   type="text"
-                  minLength={5}
-                  maxLength={30}
+                  minLength={3}
+                  maxLength={100}
+                  autoComplete="off"
                   placeholder="Descriçao"
                 />
               </ContainerDescription>
