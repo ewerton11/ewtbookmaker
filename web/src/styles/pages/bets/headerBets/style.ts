@@ -60,7 +60,7 @@ export const PreviewBets = styled.div`
   width: 100%;
   height: 17%;
   background-color: white;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
   justify-content: space-around;
