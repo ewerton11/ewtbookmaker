@@ -60,14 +60,14 @@ export const ContainerInputPassword = styled.div`
 `
 
 export const Buttom = styled.button`
-  width: 90%;
-  height: 13%;
+  width: 70%;
+  height: 10%;
   border-radius: 15px;
   background-color: blue;
   position: absolute;
   bottom: 20%;
   font-family: "Roboto", sans-serif;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: white;
   transition: ease 0.3s;
 
