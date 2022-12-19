@@ -3,7 +3,7 @@ import { PrismaClient } from "@prisma/client"
 import { sign, verify } from "jsonwebtoken"
 
 const prisma = new PrismaClient({
-  // log: ["query"],
+  log: ["query"],
 })
 
 const fastify = Fastify({
@@ -76,7 +76,6 @@ fastify.post("/bets", async (request, reply) => {
       description,
     },
   })
-
   return reply.status(201).send({ title, value, description })
 })
 
@@ -115,22 +114,3 @@ const start = async () => {
   }
 }
 start()
-
-function authMiddlwares(request: FastifyRequest, reply: FastifyReply) {
-  const { authorization } = request.headers
-
-  if (!authorization) {
-    return reply.status(401).send({ error: "token not provided" })
-  }
-
-  const [, token] = authorization.split("")
-
-  try {
-    const decoded = verify(token, "secret")
-    const { id } = decoded as Tokenpayload
-
-    request.userId = id
-  } catch {
-    return reply.status(401).send({ error: "token invalid" })
-  }
-}
