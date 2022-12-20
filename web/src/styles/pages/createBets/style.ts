@@ -170,3 +170,15 @@ export const ButtomCreateBets = styled.button`
     background-color: #5286d3;
   }
 `
+
+export const ButtomCreateBetsDisabled = styled.button`
+  width: 70%;
+  height: 10%;
+  background-color: grey;
+  border-radius: 15px;
+  margin-top: 10%;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+`

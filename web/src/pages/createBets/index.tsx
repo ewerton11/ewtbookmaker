@@ -8,6 +8,7 @@ import NavBar from "../../components/navbar"
 
 import {
   ButtomCreateBets,
+  ButtomCreateBetsDisabled,
   ContainerDescription,
   ContainerForm,
   ContainerTitle,
@@ -116,7 +117,9 @@ export default function CreateBets() {
               )}
             </DivDescription>
             {auth.data === null ? (
-              ""
+              <ButtomCreateBetsDisabled disabled>
+                Criar
+              </ButtomCreateBetsDisabled>
             ) : (
               <ButtomCreateBets type="submit">Criar</ButtomCreateBets>
             )}
