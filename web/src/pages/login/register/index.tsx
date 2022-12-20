@@ -46,7 +46,7 @@ export default function Register() {
   async function createUser(user: User) {
     try {
       await api.post("/user", {
-        name: `@${user.user}`,
+        name: user.user,
         password: user.password,
       })
 
