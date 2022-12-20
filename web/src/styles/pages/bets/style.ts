@@ -239,6 +239,20 @@ export const SelectAgainst = styled.button`
   cursor: pointer;
 `
 
+export const SelectAgainstDisabled = styled.button`
+  width: 45%;
+  height: 80%;
+  border: 1px solid gray;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  color: gray;
+  cursor: pointer;
+`
+
 export const SelectToAgree = styled.button`
   width: 45%;
   height: 80%;
@@ -250,6 +264,20 @@ export const SelectToAgree = styled.button`
   font-family: "Roboto", sans-serif;
   font-size: 1.3rem;
   color: red;
+  cursor: pointer;
+`
+
+export const SelectToAgreeDisabled = styled.button`
+  width: 45%;
+  height: 80%;
+  border: 1px solid gray;
+  border-radius: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 1.3rem;
+  color: gray;
   cursor: pointer;
 `
 

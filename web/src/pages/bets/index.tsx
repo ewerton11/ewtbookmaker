@@ -23,7 +23,9 @@ import {
   MainBets,
   PeopleBets,
   SelectAgainst,
+  SelectAgainstDisabled,
   SelectToAgree,
+  SelectToAgreeDisabled,
   SubBets,
   TitleBets,
   ToAgree,
@@ -126,7 +128,14 @@ export default function MyBets() {
                   </ContainerImage>
                 </PeopleBets>
                 {auth.data === null ? (
-                  ""
+                  <ContainerSelectBets>
+                    <SelectAgainstDisabled disabled>
+                      A favor
+                    </SelectAgainstDisabled>
+                    <SelectToAgreeDisabled disabled>
+                      Contra
+                    </SelectToAgreeDisabled>
+                  </ContainerSelectBets>
                 ) : (
                   <ContainerSelectBets>
                     <SelectAgainst>A favor</SelectAgainst>
