@@ -55,14 +55,6 @@ npm run dev
 
 cd web
 
-# Generate build
-
-npm run build
-
 # Run front end
-
-npm run start
-
-# Or run as dev
 
 npm run dev
