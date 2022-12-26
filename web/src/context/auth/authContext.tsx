@@ -9,14 +9,21 @@ interface Data {
   token: string
 }
 
-type AuthContext = {
-  data: Data
-  signin: (name: string, password: string) => boolean
+interface AuthContext {
+  data: Data | null
+  signin: (name: string, password: string) => Promise<boolean>
 }
 
-export const AuthContext = createContext<AuthContext>(null!)
+export const AuthContext = createContext<AuthContext>({
+  data: null,
+  signin: () => Promise.resolve(false),
+} as AuthContext)
 
-export const AuthProviders = ({ children }: { children: JSX.Element }) => {
+interface AuthProvidersProps {
+  children: JSX.Element
+}
+
+export const AuthProviders = ({ children }: AuthProvidersProps) => {
   const router = useRouter()
   const [data, setData] = useState<Data | null>(null)
 
@@ -33,12 +40,12 @@ export const AuthProviders = ({ children }: { children: JSX.Element }) => {
   }, [])
 
   const signin = async (name: string, password: string) => {
-    const { data } = await api.post("/auth", { name, password })
+    const { data: authData } = await api.post("/auth", { name, password })
 
-    if (data.name) {
-      localStorage.setItem("token", data.token)
-      localStorage.setItem("user", data.name)
-      setData(data)
+    if (authData.name) {
+      localStorage.setItem("token", authData.token)
+      localStorage.setItem("user", authData.name)
+      setData(authData)
       router.push("/")
       return true
     }
