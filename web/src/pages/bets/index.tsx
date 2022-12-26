@@ -44,23 +44,24 @@ export interface BetsData {
 export default function MyBets() {
   const auth = useContext(AuthContext)
   const [bets, setBets] = useState([])
+  const [selectedBet, setSelectedBet] = useState<BetsData>()
 
   useEffect(() => {
-    api.get("/bets").then((response) => {
+    const fetchBets = async () => {
+      const response = await api.get("/bets")
       const betsData = response.data
 
       setBets(betsData)
-    })
+    }
+
+    fetchBets()
   }, [])
 
-  const [selectedBet, setSelectedBet] = useState<BetsData>()
+  const selectBets = async (id: string) => {
+    const response = await api.get<BetsData>(`/bets/selectedbet/${id}`)
+    const data = response.data
 
-  async function selectBets(id: string) {
-    await api.get<BetsData>(`/bets/selectedbet/${id}`).then((response) => {
-      const data = response.data
-
-      setSelectedBet(data)
-    })
+    setSelectedBet(data)
   }
 
   return (

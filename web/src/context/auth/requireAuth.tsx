@@ -1,9 +1,12 @@
 import { useContext } from "react"
-
 import { AuthContext } from "./authContext"
 import Login from "../../pages/login"
 
-export const RequireAuth = ({ children }: { children: JSX.Element }) => {
+interface Props {
+  children: JSX.Element
+}
+
+export const RequireAuth = ({ children }: Props) => {
   const auth = useContext(AuthContext)
 
   if (auth.data === null) {
