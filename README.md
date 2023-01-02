@@ -31,6 +31,7 @@ a site where you can create bets with your friends on the topic you prefer
 
 ## Brack end
 
+- Node
 - Prisma
 - Fastify
 - JWT
